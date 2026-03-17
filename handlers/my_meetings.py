@@ -512,6 +512,7 @@ async def edit_meeting(callback: CallbackQuery, state: FSMContext, db: Database)
         }
         
         await state.set_state(EditMeeting.choosing_option)
+        logger.info(f"Пользователь {callback.from_user.id} переведен в состояние EditMeeting.choosing_option")
         
         await callback.message.edit_text(
             "✏️ Редактирование вариантов времени встречи\n\n"
@@ -527,6 +528,20 @@ async def edit_meeting(callback: CallbackQuery, state: FSMContext, db: Database)
 async def delete_option(callback: CallbackQuery, state: FSMContext, db: Database):
     """Удаление варианта времени"""
     try:
+        # Логируем полученный callback
+        logger.info(f"DELETE_OPTION вызван с callback_data: {callback.data}")
+        
+        # Проверяем текущее состояние
+        current_state = await state.get_state()
+        logger.info(f"Текущее состояние: {current_state}")
+        
+        # Проверяем, соответствует ли состояние
+        if current_state != EditMeeting.choosing_option:
+            logger.warning(f"Неверное состояние: {current_state}, ожидалось: {EditMeeting.choosing_option}")
+            # Пробуем восстановить состояние
+            await state.set_state(EditMeeting.choosing_option)
+            logger.info("Состояние восстановлено")
+        
         parts = callback.data.split("_")
         if len(parts) != 4:
             logger.error(f"Неверный формат callback_data: {callback.data}")
@@ -552,13 +567,17 @@ async def delete_option(callback: CallbackQuery, state: FSMContext, db: Database
             await callback.answer("❌ Нельзя удалять варианты после подтверждения времени")
             return
         
+        # Удаляем вариант и связанные голоса
         async with aiosqlite.connect(db.db_path) as conn:
             await conn.execute("DELETE FROM votes WHERE option_id = ?", (option_id,))
             await conn.execute("DELETE FROM meeting_options WHERE id = ?", (option_id,))
             await conn.commit()
+            logger.info(f"Вариант {option_id} и связанные голоса удалены")
         
+        # Получаем обновленный список опций
         options = await db.get_meeting_options(meeting_id)
         
+        # Обновляем сообщение
         await callback.message.edit_text(
             "✏️ Редактирование вариантов времени встречи\n\n"
             "Нажмите на вариант, чтобы удалить его, или добавьте новый:",
@@ -575,6 +594,9 @@ async def delete_option(callback: CallbackQuery, state: FSMContext, db: Database
 async def add_option_start(callback: CallbackQuery, state: FSMContext, db: Database):
     """Начало добавления нового варианта"""
     try:
+        # Логируем полученный callback
+        logger.info(f"ADD_OPTION_START вызван с callback_data: {callback.data}")
+        
         meeting_id = int(callback.data.replace("add_option_", ""))
         
         meeting = await db.get_meeting(meeting_id)
@@ -588,6 +610,7 @@ async def add_option_start(callback: CallbackQuery, state: FSMContext, db: Datab
         
         await state.update_data(edit_meeting_id=meeting_id)
         await state.set_state(EditMeeting.adding_new_time)
+        logger.info(f"Пользователь {callback.from_user.id} переведен в состояние EditMeeting.adding_new_time")
         
         user = await db.get_user(callback.from_user.id)
         temp_edit_data[callback.from_user.id] = {
@@ -609,152 +632,60 @@ async def add_option_start(callback: CallbackQuery, state: FSMContext, db: Datab
 @router.callback_query(EditMeeting.adding_new_time, F.data.startswith("date_"))
 async def add_option_date(callback: CallbackQuery, state: FSMContext, db: Database):
     """Выбор даты для нового варианта"""
-    user_id = callback.from_user.id
-    
-    if user_id not in temp_edit_data:
-        await callback.answer("Ошибка! Начните редактирование заново.")
-        await state.clear()
-        return
-    
-    user = await db.get_user(user_id)
-    if not user:
-        await callback.answer("Ошибка! Пользователь не найден.")
-        return
-    
     try:
-        date_idx = int(callback.data.replace("date_", ""))
-    except ValueError:
-        await callback.answer("Ошибка обработки данных")
-        return
-    
-    available_dates = get_available_dates(user['timezone'])
-    if date_idx >= len(available_dates):
-        await callback.answer("Ошибка: дата не найдена")
-        return
-    
-    date_str = available_dates[date_idx].strftime("%d.%m.%Y")
-    
-    if date_str in temp_edit_data[user_id]['selected_dates']:
-        temp_edit_data[user_id]['selected_dates'].remove(date_str)
-    else:
-        temp_edit_data[user_id]['selected_dates'].append(date_str)
-    
-    await callback.message.edit_text(
-        "📅 Выберите дату для нового варианта времени:",
-        reply_markup=date_selection_keyboard(temp_edit_data[user_id]['selected_dates'], user['timezone'])
-    )
-    
-    await callback.answer()
+        # Логируем полученный callback
+        logger.info(f"ADD_OPTION_DATE вызван с callback_data: {callback.data}")
+        
+        user_id = callback.from_user.id
+        
+        if user_id not in temp_edit_data:
+            await callback.answer("Ошибка! Начните редактирование заново.")
+            await state.clear()
+            return
+        
+        user = await db.get_user(user_id)
+        if not user:
+            await callback.answer("Ошибка! Пользователь не найден.")
+            return
+        
+        try:
+            date_idx = int(callback.data.replace("date_", ""))
+        except ValueError:
+            await callback.answer("Ошибка обработки данных")
+            return
+        
+        available_dates = get_available_dates(user['timezone'])
+        if date_idx >= len(available_dates):
+            await callback.answer("Ошибка: дата не найдена")
+            return
+        
+        date_str = available_dates[date_idx].strftime("%d.%m.%Y")
+        
+        if date_str in temp_edit_data[user_id]['selected_dates']:
+            temp_edit_data[user_id]['selected_dates'].remove(date_str)
+        else:
+            temp_edit_data[user_id]['selected_dates'].append(date_str)
+        
+        await callback.message.edit_text(
+            "📅 Выберите дату для нового варианта времени:",
+            reply_markup=date_selection_keyboard(temp_edit_data[user_id]['selected_dates'], user['timezone'])
+        )
+        
+        await callback.answer()
+    except Exception as e:
+        logger.error(f"Ошибка при выборе даты: {e}", exc_info=True)
+        await callback.answer("Произошла ошибка")
 
 @router.callback_query(EditMeeting.adding_new_time, F.data == "dates_done")
 async def add_option_dates_done(callback: CallbackQuery, state: FSMContext, db: Database):
     """Завершение выбора дат"""
-    user_id = callback.from_user.id
-    
-    if user_id not in temp_edit_data:
-        await callback.answer("Ошибка! Начните редактирование заново.")
-        await state.clear()
-        return
-    
-    user = await db.get_user(user_id)
-    if not user:
-        await callback.answer("Ошибка! Пользователь не найден.")
-        return
-    
-    selected_dates = temp_edit_data[user_id]['selected_dates']
-    
-    if not selected_dates:
-        await callback.answer("❌ Выберите хотя бы одну дату!")
-        return
-    
-    temp_edit_data[user_id]['current_date_idx'] = 0
-    current_date = selected_dates[0]
-    
-    available_dates = get_available_dates(user['timezone'])
-    date_idx = None
-    for i, d in enumerate(available_dates):
-        if d.strftime("%d.%m.%Y") == current_date:
-            date_idx = i
-            break
-    
-    if date_idx is None:
-        await callback.answer("Ошибка с датой!")
-        return
-    
-    selected_times = temp_edit_data[user_id]['selected_times'].get(current_date, [])
-    
-    await callback.message.edit_text(
-        f"⏰ Выберите время для даты {current_date}:",
-        reply_markup=time_selection_keyboard(date_idx, selected_times, user['timezone'])
-    )
-    
-    await callback.answer()
-
-@router.callback_query(EditMeeting.adding_new_time, F.data.startswith("time_"))
-async def add_option_time(callback: CallbackQuery, state: FSMContext, db: Database):
-    """Выбор времени для нового варианта"""
-    user_id = callback.from_user.id
-    
-    if user_id not in temp_edit_data:
-        await callback.answer("Ошибка! Начните редактирование заново.")
-        await state.clear()
-        return
-    
-    user = await db.get_user(user_id)
-    if not user:
-        await callback.answer("Ошибка! Пользователь не найден.")
-        return
-    
-    data = callback.data
-    data_without_prefix = data.replace("time_", "")
-    parts = data_without_prefix.split("_", 1)
-    
-    if len(parts) != 2:
-        await callback.answer("Ошибка формата данных")
-        return
-    
     try:
-        date_idx = int(parts[0])
-        time_str = parts[1]
-    except ValueError:
-        await callback.answer("Ошибка обработки данных")
-        return
-    
-    available_dates = get_available_dates(user['timezone'])
-    if date_idx >= len(available_dates):
-        await callback.answer("Ошибка: дата не найдена")
-        return
-    
-    date = available_dates[date_idx]
-    date_str = date.strftime("%d.%m.%Y")
-    
-    if date_str not in temp_edit_data[user_id]['selected_times']:
-        temp_edit_data[user_id]['selected_times'][date_str] = []
-    
-    if time_str in temp_edit_data[user_id]['selected_times'][date_str]:
-        temp_edit_data[user_id]['selected_times'][date_str].remove(time_str)
-    else:
-        temp_edit_data[user_id]['selected_times'][date_str].append(time_str)
-    
-    await callback.message.edit_text(
-        f"⏰ Выберите время для даты {date_str}:",
-        reply_markup=time_selection_keyboard(
-            date_idx,
-            temp_edit_data[user_id]['selected_times'].get(date_str, []),
-            user['timezone']
-        )
-    )
-    
-    await callback.answer()
-
-@router.callback_query(EditMeeting.adding_new_time, F.data == "time_done")
-async def add_option_time_done(callback: CallbackQuery, state: FSMContext, db: Database):
-    """Завершение выбора времени для текущей даты"""
-    try:
+        # Логируем полученный callback
+        logger.info(f"DATES_DONE вызван с callback_data: {callback.data}")
+        
         user_id = callback.from_user.id
         
         if user_id not in temp_edit_data:
-            logger.error(f"Временные данные не найдены для пользователя {user_id}")
             await callback.answer("Ошибка! Начните редактирование заново.")
             await state.clear()
             return
@@ -765,8 +696,150 @@ async def add_option_time_done(callback: CallbackQuery, state: FSMContext, db: D
             return
         
         selected_dates = temp_edit_data[user_id]['selected_dates']
+        
+        if not selected_dates:
+            await callback.answer("❌ Выберите хотя бы одну дату!")
+            return
+        
+        temp_edit_data[user_id]['current_date_idx'] = 0
+        current_date = selected_dates[0]
+        
+        available_dates = get_available_dates(user['timezone'])
+        date_idx = None
+        for i, d in enumerate(available_dates):
+            if d.strftime("%d.%m.%Y") == current_date:
+                date_idx = i
+                break
+        
+        if date_idx is None:
+            await callback.answer("Ошибка с датой!")
+            return
+        
+        selected_times = temp_edit_data[user_id]['selected_times'].get(current_date, [])
+        
+        await callback.message.edit_text(
+            f"⏰ Выберите время для даты {current_date}:",
+            reply_markup=time_selection_keyboard(date_idx, selected_times, user['timezone'])
+        )
+        
+        await callback.answer()
+    except Exception as e:
+        logger.error(f"Ошибка при завершении выбора дат: {e}", exc_info=True)
+        await callback.answer("Произошла ошибка")
+
+@router.callback_query(EditMeeting.adding_new_time, F.data.startswith("time_"))
+async def add_option_time(callback: CallbackQuery, state: FSMContext, db: Database):
+    """Выбор времени для нового варианта"""
+    try:
+        # Логируем полученный callback
+        logger.info(f"ADD_OPTION_TIME вызван с callback_data: {callback.data}")
+        
+        user_id = callback.from_user.id
+        
+        if user_id not in temp_edit_data:
+            await callback.answer("Ошибка! Начните редактирование заново.")
+            await state.clear()
+            return
+        
+        user = await db.get_user(user_id)
+        if not user:
+            await callback.answer("Ошибка! Пользователь не найден.")
+            return
+        
+        data = callback.data
+        
+        # Проверяем, не является ли это кнопкой "Далее"
+        if data == "time_done":
+            logger.info("Получена команда time_done, вызываем соответствующий хендлер")
+            # Вместо return вызываем нужный хендлер напрямую
+            await add_option_time_done(callback, state, db)
+            return
+        
+        # Парсим callback_data: time_{date_idx}_{time_str}
+        data_without_prefix = data.replace("time_", "")
+        
+        # Разделяем на части
+        parts = data_without_prefix.split("_", 1)
+        if len(parts) != 2:
+            logger.error(f"Неверный формат данных: {data_without_prefix}")
+            await callback.answer("Ошибка формата данных")
+            return
+        
+        try:
+            date_idx = int(parts[0])
+            time_str = parts[1]
+            logger.info(f"Индекс даты: {date_idx}, время: {time_str}")
+        except ValueError as e:
+            logger.error(f"Ошибка преобразования данных: {e}")
+            await callback.answer("Ошибка обработки данных")
+            return
+        
+        available_dates = get_available_dates(user['timezone'])
+        if date_idx >= len(available_dates):
+            await callback.answer("Ошибка: дата не найдена")
+            return
+        
+        date = available_dates[date_idx]
+        date_str = date.strftime("%d.%m.%Y")
+        
+        if date_str not in temp_edit_data[user_id]['selected_times']:
+            temp_edit_data[user_id]['selected_times'][date_str] = []
+        
+        if time_str in temp_edit_data[user_id]['selected_times'][date_str]:
+            temp_edit_data[user_id]['selected_times'][date_str].remove(time_str)
+            action = "удалено из"
+        else:
+            temp_edit_data[user_id]['selected_times'][date_str].append(time_str)
+            action = "добавлено в"
+        
+        logger.info(f"Время {time_str} {action} выбранных для даты {date_str}")
+        logger.info(f"Текущие выбранные времена для {date_str}: {temp_edit_data[user_id]['selected_times'][date_str]}")
+        
+        await callback.message.edit_text(
+            f"⏰ Выберите время для даты {date_str}:",
+            reply_markup=time_selection_keyboard(
+                date_idx,
+                temp_edit_data[user_id]['selected_times'].get(date_str, []),
+                user['timezone']
+            )
+        )
+        
+        await callback.answer()
+    except Exception as e:
+        logger.error(f"Ошибка при выборе времени: {e}", exc_info=True)
+        await callback.answer("Произошла ошибка")
+
+@router.callback_query(EditMeeting.adding_new_time, F.data == "time_done")
+async def add_option_time_done(callback: CallbackQuery, state: FSMContext, db: Database):
+    """Завершение выбора времени для текущей даты"""
+    try:
+        # Логируем полученный callback
+        logger.info(f"TIME_DONE вызван с callback_data: {callback.data}")
+        
+        user_id = callback.from_user.id
+        logger.info(f"Пользователь {user_id} нажал 'Далее' при добавлении вариантов")
+        
+        # Проверяем, есть ли временные данные
+        if user_id not in temp_edit_data:
+            logger.error(f"Временные данные не найдены для пользователя {user_id}")
+            await callback.answer("Ошибка! Начните редактирование заново.")
+            await state.clear()
+            return
+        
+        # Проверяем, есть ли пользователь в базе
+        user = await db.get_user(user_id)
+        if not user:
+            await callback.answer("Ошибка! Пользователь не найден.")
+            return
+        
+        # Получаем данные
+        selected_dates = temp_edit_data[user_id]['selected_dates']
         current_idx = temp_edit_data[user_id]['current_date_idx']
         
+        logger.info(f"Выбранные даты: {selected_dates}")
+        logger.info(f"Текущий индекс: {current_idx}")
+        
+        # Проверяем индекс
         if current_idx >= len(selected_dates):
             logger.error(f"Индекс {current_idx} вне диапазона дат {selected_dates}")
             await callback.answer("Ошибка: индекс даты вне диапазона")
@@ -774,16 +847,21 @@ async def add_option_time_done(callback: CallbackQuery, state: FSMContext, db: D
         
         current_date = selected_dates[current_idx]
         
+        # Проверяем, выбрано ли время для текущей даты
         selected_times_for_current = temp_edit_data[user_id]['selected_times'].get(current_date, [])
+        logger.info(f"Выбранное время для {current_date}: {selected_times_for_current}")
         
         if not selected_times_for_current:
             await callback.answer("❌ Выберите хотя бы один вариант времени!")
             return
         
+        # Переходим к следующей дате или сохраняем
         if current_idx + 1 < len(selected_dates):
+            # Переходим к следующей дате
             next_idx = current_idx + 1
             temp_edit_data[user_id]['current_date_idx'] = next_idx
             next_date = selected_dates[next_idx]
+            logger.info(f"Переход к следующей дате: {next_date}")
             
             available_dates = get_available_dates(user['timezone'])
             date_idx = None
@@ -798,12 +876,15 @@ async def add_option_time_done(callback: CallbackQuery, state: FSMContext, db: D
                 return
             
             selected_times = temp_edit_data[user_id]['selected_times'].get(next_date, [])
+            logger.info(f"Ранее выбранное время для {next_date}: {selected_times}")
             
             await callback.message.edit_text(
                 f"⏰ Выберите время для даты {next_date}:",
                 reply_markup=time_selection_keyboard(date_idx, selected_times, user['timezone'])
             )
         else:
+            # Все даты обработаны - сохраняем новые варианты
+            logger.info(f"Все даты обработаны, сохраняем новые варианты")
             await save_new_options(callback.message, state, db, user_id)
         
         await callback.answer()
@@ -815,6 +896,8 @@ async def add_option_time_done(callback: CallbackQuery, state: FSMContext, db: D
 async def save_new_options(message: Message, state: FSMContext, db: Database, user_id: int):
     """Сохранение новых вариантов времени"""
     try:
+        logger.info(f"Сохранение новых вариантов для пользователя {user_id}")
+        
         data = await state.get_data()
         meeting_id = data.get('edit_meeting_id')
         
@@ -876,9 +959,12 @@ async def save_new_options(message: Message, state: FSMContext, db: Database, us
                 
                 await db.add_meeting_option(meeting_id, utc_dt_str, option_text)
                 options_added += 1
+                logger.info(f"Добавлен вариант: {option_text}")
         
+        # Получаем обновленный список опций
         options = await db.get_meeting_options(meeting_id)
         
+        # Возвращаемся к редактированию
         await message.answer(
             f"✅ Добавлено новых вариантов: {options_added}",
             reply_markup=edit_options_keyboard(meeting_id, options)
@@ -886,11 +972,18 @@ async def save_new_options(message: Message, state: FSMContext, db: Database, us
         
         logger.info(f"Добавлено {options_added} новых вариантов к встрече {meeting_id}")
         
+        # Очищаем временные данные
+        if user_id in temp_edit_data:
+            del temp_edit_data[user_id]
+        
+        # Возвращаем состояние к choosing_option
+        await state.set_state(EditMeeting.choosing_option)
+        logger.info(f"Пользователь {user_id} возвращен в состояние EditMeeting.choosing_option")
+        
     except Exception as e:
         logger.error(f"Ошибка при сохранении новых вариантов: {e}", exc_info=True)
         await message.answer("❌ Произошла ошибка при сохранении.")
-    finally:
-        await state.set_state(EditMeeting.choosing_option)
+        await state.clear()
         if user_id in temp_edit_data:
             del temp_edit_data[user_id]
 
@@ -898,6 +991,8 @@ async def save_new_options(message: Message, state: FSMContext, db: Database, us
 async def finish_edit(callback: CallbackQuery, state: FSMContext, db: Database):
     """Завершение редактирования"""
     try:
+        logger.info(f"FINISH_EDIT вызван с callback_data: {callback.data}")
+        
         meeting_id = int(callback.data.replace("finish_edit_", ""))
         
         meeting = await db.get_meeting(meeting_id)

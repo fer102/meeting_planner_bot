@@ -77,8 +77,8 @@ def time_selection_keyboard(date_idx: int, selected_times: list = None, user_tim
     builder.adjust(3, 1)
     return builder.as_markup()
 
-# Остальные функции без изменений...
 def meeting_options_keyboard(meeting_id: int, options: list, user_votes: list = None) -> InlineKeyboardMarkup:
+    """Клавиатура для голосования"""
     if user_votes is None:
         user_votes = []
     
@@ -122,6 +122,7 @@ def meeting_options_keyboard(meeting_id: int, options: list, user_votes: list = 
     return builder.as_markup()
 
 def meeting_management_keyboard(meeting_id: int, is_creator: bool) -> InlineKeyboardMarkup:
+    """Клавиатура управления встречей"""
     builder = InlineKeyboardBuilder()
     
     builder.button(text="📊 Результаты", callback_data=f"view_results_{meeting_id}")
@@ -139,6 +140,7 @@ def meeting_management_keyboard(meeting_id: int, is_creator: bool) -> InlineKeyb
     return builder.as_markup()
 
 def reminder_keyboard(meeting_id: int) -> InlineKeyboardMarkup:
+    """Клавиатура выбора напоминания"""
     builder = InlineKeyboardBuilder()
     
     builder.button(text="За 1 час", callback_data=f"remind_{meeting_id}_60")
@@ -150,11 +152,13 @@ def reminder_keyboard(meeting_id: int) -> InlineKeyboardMarkup:
     return builder.as_markup()
 
 def back_keyboard() -> InlineKeyboardMarkup:
+    """Клавиатура с кнопкой назад"""
     builder = InlineKeyboardBuilder()
     builder.button(text="🔙 Назад", callback_data="back")
     return builder.as_markup()
 
 def meetings_list_keyboard(meetings: list, user_id: int) -> InlineKeyboardMarkup:
+    """Клавиатура со списком встреч"""
     builder = InlineKeyboardBuilder()
     
     for meeting in meetings:
@@ -169,6 +173,7 @@ def meetings_list_keyboard(meetings: list, user_id: int) -> InlineKeyboardMarkup
     return builder.as_markup()
 
 def edit_options_keyboard(meeting_id: int, options: list) -> InlineKeyboardMarkup:
+    """Клавиатура для редактирования вариантов времени"""
     builder = InlineKeyboardBuilder()
     
     for opt in options:
