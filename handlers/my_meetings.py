@@ -511,8 +511,10 @@ async def edit_meeting(callback: CallbackQuery, state: FSMContext, db: Database)
             'options': options
         }
         
+        # Убеждаемся, что состояние установлено
         await state.set_state(EditMeeting.choosing_option)
-        logger.info(f"Пользователь {callback.from_user.id} переведен в состояние EditMeeting.choosing_option")
+        current_state = await state.get_state()
+        logger.info(f"Пользователь {callback.from_user.id} переведен в состояние {current_state}")
         
         await callback.message.edit_text(
             "✏️ Редактирование вариантов времени встречи\n\n"
@@ -1065,3 +1067,148 @@ async def back_to_meetings(callback: CallbackQuery, db: Database):
     except Exception as e:
         logger.error(f"Ошибка при возврате к списку встреч: {e}", exc_info=True)
         await callback.answer("Произошла ошибка")
+
+@router.callback_query(EditMeeting.choosing_option, F.data.startswith("del_"))
+async def delete_option(callback: CallbackQuery, state: FSMContext, db: Database):
+    """Удаление варианта времени"""
+    try:
+        # Логируем полученный callback
+        logger.info(f"🚮 DELETE_OPTION вызван с callback_data: {callback.data}")
+        
+        # Проверяем текущее состояние
+        current_state = await state.get_state()
+        logger.info(f"Текущее состояние: {current_state}")
+        
+        # Разбираем callback_data формата "del_meetingId_optionId"
+        parts = callback.data.split("_")
+        if len(parts) != 3:
+            logger.error(f"Неверный формат callback_data: {callback.data}")
+            await callback.answer("Ошибка формата данных")
+            return
+            
+        meeting_id = int(parts[1])
+        option_id = int(parts[2])
+        
+        logger.info(f"Пользователь {callback.from_user.id} удаляет вариант {option_id} из встречи {meeting_id}")
+        
+        # Получаем информацию о встрече
+        meeting = await db.get_meeting(meeting_id)
+        if not meeting:
+            await callback.answer("Встреча не найдена")
+            return
+            
+        # Проверяем, что пользователь - создатель
+        creator = await db.get_user_by_id(meeting['creator_id'])
+        if not creator or creator['telegram_id'] != callback.from_user.id:
+            await callback.answer("Только создатель может удалять варианты")
+            return
+        
+        # Проверяем, не подтверждена ли уже встреча
+        if meeting['finalized_option_id']:
+            await callback.answer("❌ Нельзя удалять варианты после подтверждения времени")
+            return
+        
+        # Удаляем вариант и связанные голоса
+        async with aiosqlite.connect(db.db_path) as conn:
+            await conn.execute("DELETE FROM votes WHERE option_id = ?", (option_id,))
+            await conn.execute("DELETE FROM meeting_options WHERE id = ?", (option_id,))
+            await conn.commit()
+            logger.info(f"Вариант {option_id} и связанные голоса удалены")
+        
+        # Получаем обновленный список опций
+        options = await db.get_meeting_options(meeting_id)
+        
+        # Обновляем сообщение
+        await callback.message.edit_text(
+            "✏️ Редактирование вариантов времени встречи\n\n"
+            "Нажмите на вариант, чтобы удалить его, или добавьте новый:",
+            reply_markup=edit_options_keyboard(meeting_id, options)
+        )
+        
+        await callback.answer("✅ Вариант удален")
+        
+    except Exception as e:
+        logger.error(f"Ошибка при удалении варианта: {e}", exc_info=True)
+        await callback.answer("Произошла ошибка")      
+
+@router.callback_query(EditMeeting.choosing_option, F.data.startswith("add_"))
+async def add_option_start(callback: CallbackQuery, state: FSMContext, db: Database):
+    """Начало добавления нового варианта"""
+    try:
+        # Логируем полученный callback
+        logger.info(f"➕ ADD_OPTION_START вызван с callback_data: {callback.data}")
+        
+        meeting_id = int(callback.data.replace("add_", ""))
+        
+        meeting = await db.get_meeting(meeting_id)
+        if not meeting:
+            await callback.answer("Встреча не найдена")
+            return
+            
+        if meeting['finalized_option_id']:
+            await callback.answer("❌ Нельзя добавлять варианты после подтверждения времени")
+            return
+        
+        await state.update_data(edit_meeting_id=meeting_id)
+        await state.set_state(EditMeeting.adding_new_time)
+        logger.info(f"Пользователь {callback.from_user.id} переведен в состояние EditMeeting.adding_new_time")
+        
+        user = await db.get_user(callback.from_user.id)
+        temp_edit_data[callback.from_user.id] = {
+            'meeting_id': meeting_id,
+            'selected_dates': [],
+            'selected_times': {},
+            'current_date_idx': 0
+        }
+        
+        await callback.message.edit_text(
+            "📅 Выберите дату для нового варианта времени:",
+            reply_markup=date_selection_keyboard(user_timezone=user['timezone'])
+        )
+        await callback.answer()
+    except Exception as e:
+        logger.error(f"Ошибка при начале добавления варианта: {e}", exc_info=True)
+        await callback.answer("Произошла ошибка")          
+
+@router.callback_query(F.data.startswith("finish_"))
+async def finish_edit(callback: CallbackQuery, state: FSMContext, db: Database):
+    """Завершение редактирования"""
+    try:
+        logger.info(f"🏁 FINISH_EDIT вызван с callback_data: {callback.data}")
+        
+        meeting_id = int(callback.data.replace("finish_", ""))
+        
+        meeting = await db.get_meeting(meeting_id)
+        user = await db.get_user(callback.from_user.id)
+        
+        creator = await db.get_user_by_id(meeting['creator_id'])
+        is_creator = (creator and creator['telegram_id'] == callback.from_user.id)
+        
+        final_time_text = ""
+        if meeting['finalized_option_id']:
+            options = await db.get_meeting_options(meeting_id)
+            for opt in options:
+                if opt['id'] == meeting['finalized_option_id']:
+                    final_time_text = f"\n✅ Подтвержденное время: {utc_to_local(opt['option_datetime'], user['timezone'])}"
+                    break
+        
+        text = (
+            f"📅 Встреча: {meeting['title']}\n"
+            f"📝 Описание: {meeting['description'] or 'Нет описания'}"
+            f"{final_time_text}\n\n"
+            f"Выберите действие:"
+        )
+        
+        await callback.message.edit_text(
+            text,
+            reply_markup=meeting_management_keyboard(meeting_id, is_creator)
+        )
+        
+        await state.clear()
+        if callback.from_user.id in temp_edit_data:
+            del temp_edit_data[callback.from_user.id]
+        
+        await callback.answer("✅ Редактирование завершено")
+    except Exception as e:
+        logger.error(f"Ошибка при завершении редактирования: {e}", exc_info=True)
+        await callback.answer("Произошла ошибка")        

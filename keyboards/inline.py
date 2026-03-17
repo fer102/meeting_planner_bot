@@ -177,12 +177,16 @@ def edit_options_keyboard(meeting_id: int, options: list) -> InlineKeyboardMarku
     builder = InlineKeyboardBuilder()
     
     for opt in options:
+        # Используем очень простой формат: del_{meeting_id}_{option_id}
+        # Это исключает любые проблемы с спецсимволами
+        callback_data = f"del_{meeting_id}_{opt['id']}"
+        
         builder.button(
             text=f"❌ {opt['option_text']}",
-            callback_data=f"delete_option_{meeting_id}_{opt['id']}"
+            callback_data=callback_data
         )
     
-    builder.button(text="➕ Добавить новый вариант", callback_data=f"add_option_{meeting_id}")
-    builder.button(text="✅ Завершить редактирование", callback_data=f"finish_edit_{meeting_id}")
+    builder.button(text="➕ Добавить новый вариант", callback_data=f"add_{meeting_id}")
+    builder.button(text="✅ Завершить редактирование", callback_data=f"finish_{meeting_id}")
     builder.adjust(1)
     return builder.as_markup()

@@ -3779,3 +3779,105 @@ aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: messa
 2026-03-17 17:34:48,889 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8248055852)
 2026-03-17 17:34:49,154 - aiogram.dispatcher - INFO - Polling stopped for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
 2026-03-17 17:34:49,155 - __main__ - INFO - Бот остановлен пользователем
+2026-03-17 17:40:21,341 - __main__ - INFO - Инициализация бота...
+2026-03-17 17:40:21,503 - __main__ - INFO - Запуск бота...
+2026-03-17 17:40:21,506 - database.db - INFO - Таблицы в базе данных созданы/проверены
+2026-03-17 17:40:21,506 - __main__ - INFO - База данных инициализирована
+2026-03-17 17:40:21,506 - handlers.reminders - INFO - Фоновая задача напоминаний запущена
+2026-03-17 17:40:21,507 - handlers.reminders - INFO - Задача напоминаний запущена
+2026-03-17 17:40:21,754 - __main__ - INFO - Бот @PlanTogether_bot (ID: 8248055852) запущен и готов к работе
+2026-03-17 17:40:21,825 - __main__ - INFO - Начинаем polling...
+2026-03-17 17:40:21,826 - aiogram.dispatcher - INFO - Start polling
+2026-03-17 17:40:21,894 - aiogram.dispatcher - INFO - Run polling for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-17 17:40:27,576 - aiogram.event - INFO - Update id=693994810 is handled. Duration 265 ms by bot id=8248055852
+2026-03-17 17:40:28,481 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 25
+2026-03-17 17:40:28,674 - aiogram.event - INFO - Update id=693994811 is handled. Duration 203 ms by bot id=8248055852
+2026-03-17 17:40:29,712 - handlers.my_meetings - INFO - Пользователь 272446792 редактирует встречу 25
+2026-03-17 17:40:29,715 - handlers.my_meetings - INFO - Пользователь 272446792 переведен в состояние EditMeeting:choosing_option
+2026-03-17 17:40:29,915 - aiogram.event - INFO - Update id=693994812 is handled. Duration 202 ms by bot id=8248055852
+2026-03-17 17:40:30,977 - handlers.my_meetings - INFO - Текущее состояние: EditMeeting:choosing_option
+2026-03-17 17:40:30,977 - handlers.my_meetings - INFO - Пользователь 272446792 удаляет вариант 191 из встречи 25
+2026-03-17 17:40:30,987 - handlers.my_meetings - INFO - Вариант 191 и связанные голоса удалены
+2026-03-17 17:40:31,162 - aiogram.event - INFO - Update id=693994813 is handled. Duration 264 ms by bot id=8248055852
+2026-03-17 17:40:32,644 - handlers.my_meetings - INFO - Текущее состояние: EditMeeting:choosing_option
+2026-03-17 17:40:32,645 - handlers.my_meetings - INFO - Пользователь 272446792 удаляет вариант 192 из встречи 25
+2026-03-17 17:40:32,656 - handlers.my_meetings - INFO - Вариант 192 и связанные голоса удалены
+2026-03-17 17:40:32,844 - aiogram.event - INFO - Update id=693994814 is handled. Duration 218 ms by bot id=8248055852
+2026-03-17 17:40:34,487 - handlers.my_meetings - INFO - Пользователь 272446792 переведен в состояние EditMeeting.adding_new_time
+2026-03-17 17:40:34,661 - aiogram.event - INFO - Update id=693994815 is handled. Duration 186 ms by bot id=8248055852
+2026-03-17 17:40:35,566 - handlers.my_meetings - INFO - ADD_OPTION_DATE вызван с callback_data: date_2
+2026-03-17 17:40:35,740 - aiogram.event - INFO - Update id=693994816 is handled. Duration 172 ms by bot id=8248055852
+2026-03-17 17:40:36,790 - handlers.my_meetings - INFO - DATES_DONE вызван с callback_data: dates_done
+2026-03-17 17:40:36,959 - aiogram.event - INFO - Update id=693994817 is handled. Duration 172 ms by bot id=8248055852
+2026-03-17 17:40:37,730 - handlers.my_meetings - INFO - ADD_OPTION_TIME вызван с callback_data: time_2_14:00
+2026-03-17 17:40:37,731 - handlers.my_meetings - INFO - Индекс даты: 2, время: 14:00
+2026-03-17 17:40:37,732 - handlers.my_meetings - INFO - Время 14:00 добавлено в выбранных для даты 20.03.2026
+2026-03-17 17:40:37,732 - handlers.my_meetings - INFO - Текущие выбранные времена для 20.03.2026: ['14:00']
+2026-03-17 17:40:38,181 - aiogram.event - INFO - Update id=693994818 is handled. Duration 453 ms by bot id=8248055852
+2026-03-17 17:40:38,293 - handlers.my_meetings - INFO - ADD_OPTION_TIME вызван с callback_data: time_2_13:00
+2026-03-17 17:40:38,295 - handlers.my_meetings - INFO - Индекс даты: 2, время: 13:00
+2026-03-17 17:40:38,295 - handlers.my_meetings - INFO - Время 13:00 добавлено в выбранных для даты 20.03.2026
+2026-03-17 17:40:38,295 - handlers.my_meetings - INFO - Текущие выбранные времена для 20.03.2026: ['14:00', '13:00']
+2026-03-17 17:40:38,462 - aiogram.event - INFO - Update id=693994819 is handled. Duration 172 ms by bot id=8248055852
+2026-03-17 17:40:42,354 - handlers.my_meetings - INFO - ADD_OPTION_TIME вызван с callback_data: time_done
+2026-03-17 17:40:42,356 - handlers.my_meetings - INFO - Получена команда time_done, вызываем соответствующий хендлер
+2026-03-17 17:40:42,356 - handlers.my_meetings - INFO - TIME_DONE вызван с callback_data: time_done
+2026-03-17 17:40:42,356 - handlers.my_meetings - INFO - Пользователь 272446792 нажал 'Далее' при добавлении вариантов
+2026-03-17 17:40:42,358 - handlers.my_meetings - INFO - Выбранные даты: ['20.03.2026']
+2026-03-17 17:40:42,358 - handlers.my_meetings - INFO - Текущий индекс: 0
+2026-03-17 17:40:42,358 - handlers.my_meetings - INFO - Выбранное время для 20.03.2026: ['14:00', '13:00']
+2026-03-17 17:40:42,358 - handlers.my_meetings - INFO - Все даты обработаны, сохраняем новые варианты
+2026-03-17 17:40:42,358 - handlers.my_meetings - INFO - Сохранение новых вариантов для пользователя 272446792
+2026-03-17 17:40:42,395 - handlers.my_meetings - INFO - Добавлен вариант: 20.03.2026 14:00
+2026-03-17 17:40:42,403 - handlers.my_meetings - INFO - Добавлен вариант: 20.03.2026 13:00
+2026-03-17 17:40:42,535 - handlers.my_meetings - INFO - Добавлено 2 новых вариантов к встрече 25
+2026-03-17 17:40:42,536 - handlers.my_meetings - INFO - Пользователь 272446792 возвращен в состояние EditMeeting.choosing_option
+2026-03-17 17:40:42,633 - aiogram.event - INFO - Update id=693994820 is handled. Duration 281 ms by bot id=8248055852
+2026-03-17 17:40:45,176 - aiogram.event - INFO - Update id=693994821 is handled. Duration 219 ms by bot id=8248055852
+2026-03-17 17:41:12,073 - handlers.start - INFO - Пользователь 6468732318 перешел по ссылке на встречу 25
+2026-03-17 17:41:12,107 - handlers.start - INFO - Пользователь 2 добавлен в участники встречи 25
+2026-03-17 17:41:12,210 - handlers.start - INFO - Пользователю 2 показаны варианты для встречи 25
+2026-03-17 17:41:12,211 - aiogram.event - INFO - Update id=693994822 is handled. Duration 140 ms by bot id=8248055852
+2026-03-17 17:41:16,478 - aiogram.event - INFO - Update id=693994823 is handled. Duration 171 ms by bot id=8248055852
+2026-03-17 17:41:19,315 - aiogram.event - INFO - Update id=693994824 is handled. Duration 202 ms by bot id=8248055852
+2026-03-17 17:41:20,116 - aiogram.event - INFO - Update id=693994825 is handled. Duration 186 ms by bot id=8248055852
+2026-03-17 17:41:22,427 - handlers.voting - INFO - Пользователь 6468732318 завершил голосование в встрече 25
+2026-03-17 17:41:22,510 - aiogram.event - INFO - Update id=693994826 is handled. Duration 265 ms by bot id=8248055852
+2026-03-17 17:41:24,710 - aiogram.event - INFO - Update id=693994827 is handled. Duration 93 ms by bot id=8248055852
+2026-03-17 17:41:27,074 - handlers.my_meetings - INFO - Пользователь 6468732318 запросил удаление своих прошедших встреч
+2026-03-17 17:41:27,076 - database.db - INFO - Нет встреч для удаления у пользователя 2
+2026-03-17 17:41:27,246 - handlers.my_meetings - ERROR - Ошибка при удалении прошедших встреч: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+Traceback (most recent call last):
+  File "E:\meeting_planner_bot\handlers\my_meetings.py", line 240, in delete_past_meetings_handler
+    await callback.message.edit_text(
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\client\bot.py", line 485, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 189, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2026-03-17 17:41:27,350 - aiogram.event - INFO - Update id=693994828 is handled. Duration 281 ms by bot id=8248055852
+2026-03-17 17:41:29,894 - handlers.my_meetings - INFO - Пользователь 6468732318 просматривает встречу 25
+2026-03-17 17:41:30,088 - aiogram.event - INFO - Update id=693994829 is handled. Duration 186 ms by bot id=8248055852
+2026-03-17 17:41:31,710 - aiogram.event - INFO - Update id=693994830 is handled. Duration 172 ms by bot id=8248055852
+2026-03-17 17:41:33,387 - aiogram.event - INFO - Update id=693994831 is handled. Duration 188 ms by bot id=8248055852
+2026-03-17 17:41:36,107 - aiogram.event - INFO - Update id=693994832 is handled. Duration 311 ms by bot id=8248055852
+2026-03-17 17:41:49,130 - aiogram.event - INFO - Update id=693994833 is handled. Duration 140 ms by bot id=8248055852
+2026-03-17 17:41:52,671 - handlers.my_meetings - INFO - Пользователь 272446792 запросил удаление своих прошедших встреч
+2026-03-17 17:41:52,778 - database.db - INFO - Найдено 3 встреч для удаления у пользователя 1: [23, 24, 25]
+2026-03-17 17:41:53,000 - aiogram.event - INFO - Update id=693994834 is handled. Duration 344 ms by bot id=8248055852
+2026-03-17 17:42:00,879 - aiogram.event - INFO - Update id=693994835 is handled. Duration 125 ms by bot id=8248055852
+2026-03-17 17:42:50,451 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-17 17:42:50,453 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-17 17:42:50,453 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8248055852)
+2026-03-17 17:42:50,713 - aiogram.dispatcher - INFO - Polling stopped for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-17 17:42:50,714 - __main__ - INFO - Бот остановлен пользователем
