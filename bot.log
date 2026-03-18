@@ -3881,3 +3881,890 @@ aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: messa
 2026-03-17 17:42:50,453 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8248055852)
 2026-03-17 17:42:50,713 - aiogram.dispatcher - INFO - Polling stopped for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
 2026-03-17 17:42:50,714 - __main__ - INFO - Бот остановлен пользователем
+2026-03-18 13:03:18,348 - __main__ - INFO - Инициализация бота...
+2026-03-18 13:03:18,709 - __main__ - INFO - Запуск бота...
+2026-03-18 13:03:18,725 - database.db - INFO - Таблицы в базе данных созданы/проверены
+2026-03-18 13:03:18,726 - __main__ - INFO - База данных инициализирована
+2026-03-18 13:03:18,727 - handlers.reminders - INFO - Фоновая задача напоминаний запущена
+2026-03-18 13:03:18,728 - handlers.reminders - INFO - Задача напоминаний запущена
+2026-03-18 13:03:19,065 - __main__ - INFO - Бот @PlanTogether_bot (ID: 8248055852) запущен и готов к работе
+2026-03-18 13:03:19,136 - __main__ - INFO - Начинаем polling...
+2026-03-18 13:03:19,136 - aiogram.dispatcher - INFO - Start polling
+2026-03-18 13:03:19,207 - aiogram.dispatcher - INFO - Run polling for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-18 13:04:00,763 - aiogram.event - INFO - Update id=693994837 is handled. Duration 281 ms by bot id=8248055852
+2026-03-18 13:04:03,711 - handlers.create_meeting - INFO - Пользователь 272446792 начинает создание встречи
+2026-03-18 13:04:03,799 - aiogram.event - INFO - Update id=693994838 is handled. Duration 93 ms by bot id=8248055852
+2026-03-18 13:04:10,173 - handlers.create_meeting - INFO - Пользователь 272446792 ввел название: 13:04
+2026-03-18 13:04:10,269 - aiogram.event - INFO - Update id=693994839 is handled. Duration 93 ms by bot id=8248055852
+2026-03-18 13:04:13,785 - handlers.create_meeting - INFO - Пользователь 272446792 ввел описание: выпми апо аео
+2026-03-18 13:04:13,787 - handlers.create_meeting - INFO - Инициализированы временные данные для пользователя 272446792
+2026-03-18 13:04:13,898 - aiogram.event - INFO - Update id=693994840 is handled. Duration 109 ms by bot id=8248055852
+2026-03-18 13:04:15,417 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал дату с callback_data: date_0
+2026-03-18 13:04:15,419 - handlers.create_meeting - INFO - Индекс выбранной даты: 0
+2026-03-18 13:04:15,419 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 13:04:15,419 - handlers.create_meeting - INFO - Дата 18.03.2026 добавлена в выбранные
+2026-03-18 13:04:15,419 - handlers.create_meeting - INFO - Текущие выбранные даты: ['18.03.2026']
+2026-03-18 13:04:15,610 - aiogram.event - INFO - Update id=693994841 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 13:04:16,252 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал дату с callback_data: date_1
+2026-03-18 13:04:16,253 - handlers.create_meeting - INFO - Индекс выбранной даты: 1
+2026-03-18 13:04:16,254 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 13:04:16,254 - handlers.create_meeting - INFO - Дата 19.03.2026 добавлена в выбранные
+2026-03-18 13:04:16,254 - handlers.create_meeting - INFO - Текущие выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 13:04:16,423 - aiogram.event - INFO - Update id=693994842 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:04:17,196 - handlers.create_meeting - INFO - Пользователь 272446792 завершил выбор дат
+2026-03-18 13:04:17,197 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 13:04:17,199 - handlers.create_meeting - INFO - Переход к выбору времени для даты: 18.03.2026
+2026-03-18 13:04:17,200 - handlers.create_meeting - INFO - Индекс даты 18.03.2026: 0
+2026-03-18 13:04:17,201 - handlers.create_meeting - INFO - Ранее выбранное время для 18.03.2026: []
+2026-03-18 13:04:17,385 - aiogram.event - INFO - Update id=693994843 is handled. Duration 203 ms by bot id=8248055852
+2026-03-18 13:04:19,344 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал время с callback_data: time_0_14:00
+2026-03-18 13:04:19,345 - handlers.create_meeting - INFO - Индекс даты: 0, время: 14:00
+2026-03-18 13:04:19,346 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 13:04:19,346 - handlers.create_meeting - INFO - Инициализирован список времени для даты 18.03.2026
+2026-03-18 13:04:19,346 - handlers.create_meeting - INFO - Время 14:00 добавлено в выбранные
+2026-03-18 13:04:19,346 - handlers.create_meeting - INFO - Текущие выбранные времена для 18.03.2026: ['14:00']
+2026-03-18 13:04:19,523 - aiogram.event - INFO - Update id=693994844 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:04:20,020 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал время с callback_data: time_0_15:00
+2026-03-18 13:04:20,024 - handlers.create_meeting - INFO - Индекс даты: 0, время: 15:00
+2026-03-18 13:04:20,024 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 13:04:20,026 - handlers.create_meeting - INFO - Время 15:00 добавлено в выбранные
+2026-03-18 13:04:20,026 - handlers.create_meeting - INFO - Текущие выбранные времена для 18.03.2026: ['14:00', '15:00']
+2026-03-18 13:04:20,193 - aiogram.event - INFO - Update id=693994845 is handled. Duration 171 ms by bot id=8248055852
+2026-03-18 13:04:20,915 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал время с callback_data: time_0_16:00
+2026-03-18 13:04:20,920 - handlers.create_meeting - INFO - Индекс даты: 0, время: 16:00
+2026-03-18 13:04:20,921 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 13:04:20,922 - handlers.create_meeting - INFO - Время 16:00 добавлено в выбранные
+2026-03-18 13:04:20,922 - handlers.create_meeting - INFO - Текущие выбранные времена для 18.03.2026: ['14:00', '15:00', '16:00']
+2026-03-18 13:04:21,092 - aiogram.event - INFO - Update id=693994846 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 13:04:21,329 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал время с callback_data: time_0_17:00
+2026-03-18 13:04:21,331 - handlers.create_meeting - INFO - Индекс даты: 0, время: 17:00
+2026-03-18 13:04:21,332 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 13:04:21,332 - handlers.create_meeting - INFO - Время 17:00 добавлено в выбранные
+2026-03-18 13:04:21,332 - handlers.create_meeting - INFO - Текущие выбранные времена для 18.03.2026: ['14:00', '15:00', '16:00', '17:00']
+2026-03-18 13:04:21,565 - aiogram.event - INFO - Update id=693994847 is handled. Duration 233 ms by bot id=8248055852
+2026-03-18 13:04:22,070 - handlers.create_meeting - INFO - Пользователь 272446792 нажал кнопку 'Далее'
+2026-03-18 13:04:22,070 - handlers.create_meeting - INFO - Текущее состояние: CreateMeeting:choosing_time
+2026-03-18 13:04:22,071 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 13:04:22,071 - handlers.create_meeting - INFO - Текущий индекс: 0
+2026-03-18 13:04:22,071 - handlers.create_meeting - INFO - Текущая дата: 18.03.2026
+2026-03-18 13:04:22,071 - handlers.create_meeting - INFO - Выбранное время для 18.03.2026: ['14:00', '15:00', '16:00', '17:00']
+2026-03-18 13:04:22,073 - handlers.create_meeting - INFO - Переход к следующей дате: 19.03.2026
+2026-03-18 13:04:22,074 - handlers.create_meeting - INFO - Индекс следующей даты: 1
+2026-03-18 13:04:22,074 - handlers.create_meeting - INFO - Ранее выбранное время для 19.03.2026: []
+2026-03-18 13:04:22,248 - aiogram.event - INFO - Update id=693994848 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 13:04:23,150 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал время с callback_data: time_1_11:00
+2026-03-18 13:04:23,153 - handlers.create_meeting - INFO - Индекс даты: 1, время: 11:00
+2026-03-18 13:04:23,153 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 13:04:23,155 - handlers.create_meeting - INFO - Инициализирован список времени для даты 19.03.2026
+2026-03-18 13:04:23,155 - handlers.create_meeting - INFO - Время 11:00 добавлено в выбранные
+2026-03-18 13:04:23,155 - handlers.create_meeting - INFO - Текущие выбранные времена для 19.03.2026: ['11:00']
+2026-03-18 13:04:23,326 - aiogram.event - INFO - Update id=693994849 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 13:04:23,613 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал время с callback_data: time_1_13:00
+2026-03-18 13:04:23,617 - handlers.create_meeting - INFO - Индекс даты: 1, время: 13:00
+2026-03-18 13:04:23,618 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 13:04:23,619 - handlers.create_meeting - INFO - Время 13:00 добавлено в выбранные
+2026-03-18 13:04:23,619 - handlers.create_meeting - INFO - Текущие выбранные времена для 19.03.2026: ['11:00', '13:00']
+2026-03-18 13:04:23,793 - aiogram.event - INFO - Update id=693994850 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 13:04:27,335 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал время с callback_data: time_1_14:00
+2026-03-18 13:04:27,336 - handlers.create_meeting - INFO - Индекс даты: 1, время: 14:00
+2026-03-18 13:04:27,336 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 13:04:27,336 - handlers.create_meeting - INFO - Время 14:00 добавлено в выбранные
+2026-03-18 13:04:27,336 - handlers.create_meeting - INFO - Текущие выбранные времена для 19.03.2026: ['11:00', '13:00', '14:00']
+2026-03-18 13:04:27,702 - aiogram.event - INFO - Update id=693994851 is handled. Duration 375 ms by bot id=8248055852
+2026-03-18 13:04:27,835 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал время с callback_data: time_1_15:00
+2026-03-18 13:04:27,838 - handlers.create_meeting - INFO - Индекс даты: 1, время: 15:00
+2026-03-18 13:04:27,838 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 13:04:27,839 - handlers.create_meeting - INFO - Время 15:00 добавлено в выбранные
+2026-03-18 13:04:27,839 - handlers.create_meeting - INFO - Текущие выбранные времена для 19.03.2026: ['11:00', '13:00', '14:00', '15:00']
+2026-03-18 13:04:28,052 - aiogram.event - INFO - Update id=693994852 is handled. Duration 218 ms by bot id=8248055852
+2026-03-18 13:04:28,836 - handlers.create_meeting - INFO - Пользователь 272446792 нажал кнопку 'Далее'
+2026-03-18 13:04:28,837 - handlers.create_meeting - INFO - Текущее состояние: CreateMeeting:choosing_time
+2026-03-18 13:04:28,837 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 13:04:28,837 - handlers.create_meeting - INFO - Текущий индекс: 1
+2026-03-18 13:04:28,838 - handlers.create_meeting - INFO - Текущая дата: 19.03.2026
+2026-03-18 13:04:28,838 - handlers.create_meeting - INFO - Выбранное время для 19.03.2026: ['11:00', '13:00', '14:00', '15:00']
+2026-03-18 13:04:28,840 - handlers.create_meeting - INFO - Все даты обработаны, сохраняем встречу
+2026-03-18 13:04:28,840 - handlers.create_meeting - INFO - Начало сохранения встречи для пользователя 272446792
+2026-03-18 13:04:28,855 - handlers.create_meeting - INFO - Создана встреча с ID: 26
+2026-03-18 13:04:28,855 - handlers.create_meeting - INFO - Часовой пояс пользователя: UTC+5
+2026-03-18 13:04:28,855 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 13:04:28,855 - handlers.create_meeting - INFO - Выбранные времена: {'18.03.2026': ['14:00', '15:00', '16:00', '17:00'], '19.03.2026': ['11:00', '13:00', '14:00', '15:00']}
+2026-03-18 13:04:28,856 - handlers.create_meeting - INFO - Добавление варианта: 18.03.2026 14:00
+2026-03-18 13:04:28,887 - handlers.create_meeting - INFO - Добавление варианта: 18.03.2026 15:00
+2026-03-18 13:04:28,899 - handlers.create_meeting - INFO - Добавление варианта: 18.03.2026 16:00
+2026-03-18 13:04:28,909 - handlers.create_meeting - INFO - Добавление варианта: 18.03.2026 17:00
+2026-03-18 13:04:28,920 - handlers.create_meeting - INFO - Добавление варианта: 19.03.2026 11:00
+2026-03-18 13:04:28,933 - handlers.create_meeting - INFO - Добавление варианта: 19.03.2026 13:00
+2026-03-18 13:04:28,944 - handlers.create_meeting - INFO - Добавление варианта: 19.03.2026 14:00
+2026-03-18 13:04:28,957 - handlers.create_meeting - INFO - Добавление варианта: 19.03.2026 15:00
+2026-03-18 13:04:28,970 - handlers.create_meeting - INFO - Добавлено вариантов времени: 8
+2026-03-18 13:04:28,970 - handlers.create_meeting - INFO - Сгенерирована ссылка: https://t.me/PlanTogether_bot?start=meeting_26
+2026-03-18 13:04:29,079 - handlers.create_meeting - INFO - Встреча 26 успешно создана пользователем 272446792
+2026-03-18 13:04:29,080 - handlers.create_meeting - INFO - Временные данные для пользователя 272446792 очищены
+2026-03-18 13:04:29,157 - aiogram.event - INFO - Update id=693994853 is handled. Duration 327 ms by bot id=8248055852
+2026-03-18 13:04:45,003 - handlers.start - INFO - Пользователь 6468732318 перешел по ссылке на встречу 26
+2026-03-18 13:04:45,015 - handlers.start - INFO - Пользователь 2 добавлен в участники встречи 26
+2026-03-18 13:04:45,118 - handlers.start - INFO - Пользователю 2 показаны варианты для встречи 26
+2026-03-18 13:04:45,118 - aiogram.event - INFO - Update id=693994854 is handled. Duration 109 ms by bot id=8248055852
+2026-03-18 13:04:54,303 - aiogram.event - INFO - Update id=693994855 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:04:55,183 - aiogram.event - INFO - Update id=693994856 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 13:04:56,560 - aiogram.event - INFO - Update id=693994857 is handled. Duration 202 ms by bot id=8248055852
+2026-03-18 13:05:01,587 - aiogram.event - INFO - Update id=693994858 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:05:03,116 - handlers.voting - INFO - Пользователь 6468732318 завершил голосование в встрече 26
+2026-03-18 13:05:03,279 - aiogram.event - INFO - Update id=693994859 is handled. Duration 344 ms by bot id=8248055852
+2026-03-18 13:05:06,771 - aiogram.event - INFO - Update id=693994860 is handled. Duration 93 ms by bot id=8248055852
+2026-03-18 13:05:08,780 - handlers.my_meetings - INFO - Пользователь 6468732318 просматривает встречу 26
+2026-03-18 13:05:08,947 - aiogram.event - INFO - Update id=693994861 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:05:10,981 - handlers.my_meetings - INFO - Пользователь 6468732318 просматривает результаты встречи 26
+2026-03-18 13:05:11,160 - aiogram.event - INFO - Update id=693994862 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:05:15,578 - aiogram.event - INFO - Update id=693994863 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 13:05:17,818 - aiogram.event - INFO - Update id=693994864 is handled. Duration 218 ms by bot id=8248055852
+2026-03-18 13:05:21,050 - aiogram.event - INFO - Update id=693994865 is handled. Duration 203 ms by bot id=8248055852
+2026-03-18 13:05:22,333 - handlers.my_meetings - INFO - Пользователь 6468732318 просматривает встречу 26
+2026-03-18 13:05:22,511 - aiogram.event - INFO - Update id=693994866 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 13:05:24,065 - aiogram.event - INFO - Update id=693994867 is handled. Duration 202 ms by bot id=8248055852
+2026-03-18 13:05:25,537 - handlers.my_meetings - INFO - Пользователь 6468732318 запросил удаление своих прошедших встреч
+2026-03-18 13:05:25,541 - database.db - INFO - Нет встреч для удаления у пользователя 2
+2026-03-18 13:05:25,791 - handlers.my_meetings - ERROR - Ошибка при удалении прошедших встреч: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+Traceback (most recent call last):
+  File "E:\meeting_planner_bot\handlers\my_meetings.py", line 240, in delete_past_meetings_handler
+    await callback.message.edit_text(
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\client\bot.py", line 485, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 189, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2026-03-18 13:05:26,018 - aiogram.event - INFO - Update id=693994868 is handled. Duration 484 ms by bot id=8248055852
+2026-03-18 13:05:31,484 - aiogram.event - INFO - Update id=693994869 is handled. Duration 109 ms by bot id=8248055852
+2026-03-18 13:05:32,437 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 26
+2026-03-18 13:05:32,782 - aiogram.event - INFO - Update id=693994870 is handled. Duration 344 ms by bot id=8248055852
+2026-03-18 13:05:33,777 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает результаты встречи 26
+2026-03-18 13:05:33,958 - aiogram.event - INFO - Update id=693994871 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 13:05:39,193 - handlers.my_meetings - INFO - Пользователь 272446792 редактирует встречу 26
+2026-03-18 13:05:39,198 - handlers.my_meetings - INFO - Пользователь 272446792 переведен в состояние EditMeeting:choosing_option
+2026-03-18 13:05:39,363 - aiogram.event - INFO - Update id=693994872 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:05:41,620 - handlers.my_meetings - INFO - Текущее состояние: EditMeeting:choosing_option
+2026-03-18 13:05:41,620 - handlers.my_meetings - INFO - Пользователь 272446792 удаляет вариант 202 из встречи 26
+2026-03-18 13:05:41,629 - handlers.my_meetings - INFO - Вариант 202 и связанные голоса удалены
+2026-03-18 13:05:41,800 - aiogram.event - INFO - Update id=693994873 is handled. Duration 265 ms by bot id=8248055852
+2026-03-18 13:05:46,186 - handlers.my_meetings - INFO - Текущее состояние: EditMeeting:choosing_option
+2026-03-18 13:05:46,187 - handlers.my_meetings - INFO - Пользователь 272446792 удаляет вариант 199 из встречи 26
+2026-03-18 13:05:46,198 - handlers.my_meetings - INFO - Вариант 199 и связанные голоса удалены
+2026-03-18 13:05:46,392 - aiogram.event - INFO - Update id=693994874 is handled. Duration 218 ms by bot id=8248055852
+2026-03-18 13:05:48,910 - handlers.my_meetings - INFO - Пользователь 272446792 переведен в состояние EditMeeting.adding_new_time
+2026-03-18 13:05:49,079 - aiogram.event - INFO - Update id=693994875 is handled. Duration 250 ms by bot id=8248055852
+2026-03-18 13:05:50,502 - handlers.my_meetings - INFO - ADD_OPTION_DATE вызван с callback_data: date_4
+2026-03-18 13:05:50,675 - aiogram.event - INFO - Update id=693994876 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 13:05:51,886 - handlers.my_meetings - INFO - DATES_DONE вызван с callback_data: dates_done
+2026-03-18 13:05:52,063 - aiogram.event - INFO - Update id=693994877 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 13:05:53,068 - handlers.my_meetings - INFO - ADD_OPTION_TIME вызван с callback_data: time_4_10:00
+2026-03-18 13:05:53,071 - handlers.my_meetings - INFO - Индекс даты: 4, время: 10:00
+2026-03-18 13:05:53,071 - handlers.my_meetings - INFO - Время 10:00 добавлено в выбранных для даты 22.03.2026
+2026-03-18 13:05:53,072 - handlers.my_meetings - INFO - Текущие выбранные времена для 22.03.2026: ['10:00']
+2026-03-18 13:05:53,261 - aiogram.event - INFO - Update id=693994878 is handled. Duration 203 ms by bot id=8248055852
+2026-03-18 13:05:53,758 - handlers.my_meetings - INFO - ADD_OPTION_TIME вызван с callback_data: time_4_17:00
+2026-03-18 13:05:53,759 - handlers.my_meetings - INFO - Индекс даты: 4, время: 17:00
+2026-03-18 13:05:53,760 - handlers.my_meetings - INFO - Время 17:00 добавлено в выбранных для даты 22.03.2026
+2026-03-18 13:05:53,760 - handlers.my_meetings - INFO - Текущие выбранные времена для 22.03.2026: ['10:00', '17:00']
+2026-03-18 13:05:53,926 - aiogram.event - INFO - Update id=693994879 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:05:54,514 - handlers.my_meetings - INFO - ADD_OPTION_TIME вызван с callback_data: time_done
+2026-03-18 13:05:54,518 - handlers.my_meetings - INFO - Получена команда time_done, вызываем соответствующий хендлер
+2026-03-18 13:05:54,518 - handlers.my_meetings - INFO - TIME_DONE вызван с callback_data: time_done
+2026-03-18 13:05:54,518 - handlers.my_meetings - INFO - Пользователь 272446792 нажал 'Далее' при добавлении вариантов
+2026-03-18 13:05:54,520 - handlers.my_meetings - INFO - Выбранные даты: ['22.03.2026']
+2026-03-18 13:05:54,521 - handlers.my_meetings - INFO - Текущий индекс: 0
+2026-03-18 13:05:54,521 - handlers.my_meetings - INFO - Выбранное время для 22.03.2026: ['10:00', '17:00']
+2026-03-18 13:05:54,521 - handlers.my_meetings - INFO - Все даты обработаны, сохраняем новые варианты
+2026-03-18 13:05:54,522 - handlers.my_meetings - INFO - Сохранение новых вариантов для пользователя 272446792
+2026-03-18 13:05:54,535 - handlers.my_meetings - INFO - Добавлен вариант: 22.03.2026 10:00
+2026-03-18 13:05:54,543 - handlers.my_meetings - INFO - Добавлен вариант: 22.03.2026 17:00
+2026-03-18 13:05:54,642 - handlers.my_meetings - INFO - Добавлено 2 новых вариантов к встрече 26
+2026-03-18 13:05:54,642 - handlers.my_meetings - INFO - Пользователь 272446792 возвращен в состояние EditMeeting.choosing_option
+2026-03-18 13:05:54,718 - aiogram.event - INFO - Update id=693994880 is handled. Duration 218 ms by bot id=8248055852
+2026-03-18 13:05:56,408 - aiogram.event - INFO - Update id=693994881 is handled. Duration 219 ms by bot id=8248055852
+2026-03-18 13:06:01,884 - handlers.my_meetings - INFO - Пользователь 6468732318 просматривает встречу 26
+2026-03-18 13:06:02,157 - aiogram.event - INFO - Update id=693994882 is handled. Duration 281 ms by bot id=8248055852
+2026-03-18 13:06:03,506 - handlers.my_meetings - INFO - Пользователь 6468732318 просматривает результаты встречи 26
+2026-03-18 13:06:03,881 - aiogram.event - INFO - Update id=693994883 is handled. Duration 375 ms by bot id=8248055852
+2026-03-18 13:06:06,334 - aiogram.event - INFO - Update id=693994884 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:06:08,594 - aiogram.event - INFO - Update id=693994885 is handled. Duration 327 ms by bot id=8248055852
+2026-03-18 13:06:10,558 - aiogram.event - INFO - Update id=693994886 is handled. Duration 139 ms by bot id=8248055852
+2026-03-18 13:06:11,969 - handlers.my_meetings - INFO - Пользователь 6468732318 просматривает встречу 26
+2026-03-18 13:06:12,279 - aiogram.event - INFO - Update id=693994887 is handled. Duration 313 ms by bot id=8248055852
+2026-03-18 13:06:50,348 - aiogram.event - INFO - Update id=693994888 is handled. Duration 156 ms by bot id=8248055852
+2026-03-18 13:06:55,158 - aiogram.event - INFO - Update id=693994889 is handled. Duration 297 ms by bot id=8248055852
+2026-03-18 13:06:58,236 - aiogram.event - INFO - Update id=693994890 is handled. Duration 93 ms by bot id=8248055852
+2026-03-18 13:06:59,272 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 26
+2026-03-18 13:06:59,445 - aiogram.event - INFO - Update id=693994891 is handled. Duration 171 ms by bot id=8248055852
+2026-03-18 13:07:02,540 - aiogram.event - INFO - Update id=693994892 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:07:04,250 - aiogram.event - INFO - Update id=693994893 is handled. Duration 202 ms by bot id=8248055852
+2026-03-18 13:07:05,897 - aiogram.event - INFO - Update id=693994894 is handled. Duration 265 ms by bot id=8248055852
+2026-03-18 13:07:07,288 - aiogram.event - INFO - Update id=693994895 is handled. Duration 109 ms by bot id=8248055852
+2026-03-18 13:07:08,203 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 26
+2026-03-18 13:07:08,373 - aiogram.event - INFO - Update id=693994896 is handled. Duration 171 ms by bot id=8248055852
+2026-03-18 13:07:11,055 - handlers.my_meetings - INFO - Пользователь 272446792 финализирует встречу 26
+2026-03-18 13:07:11,303 - aiogram.event - INFO - Update id=693994897 is handled. Duration 250 ms by bot id=8248055852
+2026-03-18 13:07:14,754 - handlers.my_meetings - INFO - Пользователь 272446792 подтверждает время 195 для встречи 26
+2026-03-18 13:07:14,792 - database.db - INFO - Для встречи 26 установлено финальное время 195
+2026-03-18 13:07:15,212 - handlers.my_meetings - INFO - Время для встречи 26 подтверждено, уведомлено 2 участников
+2026-03-18 13:07:15,287 - aiogram.event - INFO - Update id=693994898 is handled. Duration 531 ms by bot id=8248055852
+2026-03-18 13:09:58,004 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-18 13:09:58,006 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-18 13:09:58,006 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8248055852)
+2026-03-18 13:09:58,263 - aiogram.dispatcher - INFO - Polling stopped for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-18 13:09:58,269 - __main__ - INFO - Бот остановлен пользователем
+2026-03-18 13:10:01,480 - __main__ - INFO - Инициализация бота...
+2026-03-18 13:10:01,686 - __main__ - INFO - Запуск бота...
+2026-03-18 13:10:01,688 - database.db - INFO - Таблицы в базе данных созданы/проверены
+2026-03-18 13:10:01,689 - __main__ - INFO - База данных инициализирована
+2026-03-18 13:10:01,689 - handlers.reminders - INFO - Фоновая задача напоминаний запущена
+2026-03-18 13:10:01,689 - handlers.reminders - INFO - Задача напоминаний запущена
+2026-03-18 13:10:01,940 - __main__ - INFO - Бот @PlanTogether_bot (ID: 8248055852) запущен и готов к работе
+2026-03-18 13:10:02,012 - __main__ - INFO - Начинаем polling...
+2026-03-18 13:10:02,013 - aiogram.dispatcher - INFO - Start polling
+2026-03-18 13:10:02,082 - aiogram.dispatcher - INFO - Run polling for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-18 13:10:06,808 - handlers.create_meeting - INFO - Пользователь 6468732318 начинает создание встречи
+2026-03-18 13:10:07,276 - aiogram.event - INFO - Update id=693994899 is handled. Duration 484 ms by bot id=8248055852
+2026-03-18 13:10:13,348 - handlers.create_meeting - INFO - Пользователь 6468732318 ввел название: 13.10
+2026-03-18 13:10:13,500 - aiogram.event - INFO - Update id=693994900 is handled. Duration 156 ms by bot id=8248055852
+2026-03-18 13:10:16,397 - handlers.create_meeting - INFO - Пользователь 6468732318 ввел описание: Ишащпд
+2026-03-18 13:10:16,401 - handlers.create_meeting - INFO - Инициализированы временные данные для пользователя 6468732318
+2026-03-18 13:10:16,500 - aiogram.event - INFO - Update id=693994901 is handled. Duration 109 ms by bot id=8248055852
+2026-03-18 13:10:20,287 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал дату с callback_data: date_0
+2026-03-18 13:10:20,290 - handlers.create_meeting - INFO - Индекс выбранной даты: 0
+2026-03-18 13:10:20,290 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 13:10:20,290 - handlers.create_meeting - INFO - Дата 18.03.2026 добавлена в выбранные
+2026-03-18 13:10:20,291 - handlers.create_meeting - INFO - Текущие выбранные даты: ['18.03.2026']
+2026-03-18 13:10:20,470 - aiogram.event - INFO - Update id=693994902 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 13:10:21,617 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал дату с callback_data: date_1
+2026-03-18 13:10:21,619 - handlers.create_meeting - INFO - Индекс выбранной даты: 1
+2026-03-18 13:10:21,619 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 13:10:21,619 - handlers.create_meeting - INFO - Дата 19.03.2026 добавлена в выбранные
+2026-03-18 13:10:21,619 - handlers.create_meeting - INFO - Текущие выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 13:10:21,788 - aiogram.event - INFO - Update id=693994903 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:10:23,273 - handlers.create_meeting - INFO - Пользователь 6468732318 завершил выбор дат
+2026-03-18 13:10:23,273 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 13:10:23,276 - handlers.create_meeting - INFO - Переход к выбору времени для даты: 18.03.2026
+2026-03-18 13:10:23,277 - handlers.create_meeting - INFO - Индекс даты 18.03.2026: 0
+2026-03-18 13:10:23,277 - handlers.create_meeting - INFO - Ранее выбранное время для 18.03.2026: []
+2026-03-18 13:10:23,447 - aiogram.event - INFO - Update id=693994904 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 13:10:27,373 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал время с callback_data: time_0_13:00
+2026-03-18 13:10:27,376 - handlers.create_meeting - INFO - Индекс даты: 0, время: 13:00
+2026-03-18 13:10:27,376 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 13:10:27,377 - handlers.create_meeting - INFO - Инициализирован список времени для даты 18.03.2026
+2026-03-18 13:10:27,377 - handlers.create_meeting - INFO - Время 13:00 добавлено в выбранные
+2026-03-18 13:10:27,377 - handlers.create_meeting - INFO - Текущие выбранные времена для 18.03.2026: ['13:00']
+2026-03-18 13:10:27,560 - aiogram.event - INFO - Update id=693994905 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 13:10:28,250 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал время с callback_data: time_0_15:00
+2026-03-18 13:10:28,251 - handlers.create_meeting - INFO - Индекс даты: 0, время: 15:00
+2026-03-18 13:10:28,251 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 13:10:28,251 - handlers.create_meeting - INFO - Время 15:00 добавлено в выбранные
+2026-03-18 13:10:28,252 - handlers.create_meeting - INFO - Текущие выбранные времена для 18.03.2026: ['13:00', '15:00']
+2026-03-18 13:10:28,415 - aiogram.event - INFO - Update id=693994906 is handled. Duration 156 ms by bot id=8248055852
+2026-03-18 13:10:28,926 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал время с callback_data: time_0_16:00
+2026-03-18 13:10:28,928 - handlers.create_meeting - INFO - Индекс даты: 0, время: 16:00
+2026-03-18 13:10:28,928 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 13:10:28,928 - handlers.create_meeting - INFO - Время 16:00 добавлено в выбранные
+2026-03-18 13:10:28,928 - handlers.create_meeting - INFO - Текущие выбранные времена для 18.03.2026: ['13:00', '15:00', '16:00']
+2026-03-18 13:10:29,161 - aiogram.event - INFO - Update id=693994907 is handled. Duration 234 ms by bot id=8248055852
+2026-03-18 13:10:29,811 - handlers.create_meeting - INFO - Пользователь 6468732318 нажал кнопку 'Далее'
+2026-03-18 13:10:29,811 - handlers.create_meeting - INFO - Текущее состояние: CreateMeeting:choosing_time
+2026-03-18 13:10:29,811 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 13:10:29,811 - handlers.create_meeting - INFO - Текущий индекс: 0
+2026-03-18 13:10:29,812 - handlers.create_meeting - INFO - Текущая дата: 18.03.2026
+2026-03-18 13:10:29,812 - handlers.create_meeting - INFO - Выбранное время для 18.03.2026: ['13:00', '15:00', '16:00']
+2026-03-18 13:10:29,813 - handlers.create_meeting - INFO - Переход к следующей дате: 19.03.2026
+2026-03-18 13:10:29,813 - handlers.create_meeting - INFO - Индекс следующей даты: 1
+2026-03-18 13:10:29,813 - handlers.create_meeting - INFO - Ранее выбранное время для 19.03.2026: []
+2026-03-18 13:10:29,985 - aiogram.event - INFO - Update id=693994908 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:10:30,959 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал время с callback_data: time_1_13:00
+2026-03-18 13:10:30,961 - handlers.create_meeting - INFO - Индекс даты: 1, время: 13:00
+2026-03-18 13:10:30,961 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 13:10:30,962 - handlers.create_meeting - INFO - Инициализирован список времени для даты 19.03.2026
+2026-03-18 13:10:30,962 - handlers.create_meeting - INFO - Время 13:00 добавлено в выбранные
+2026-03-18 13:10:30,962 - handlers.create_meeting - INFO - Текущие выбранные времена для 19.03.2026: ['13:00']
+2026-03-18 13:10:31,131 - aiogram.event - INFO - Update id=693994909 is handled. Duration 171 ms by bot id=8248055852
+2026-03-18 13:10:33,808 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал время с callback_data: time_1_15:00
+2026-03-18 13:10:33,810 - handlers.create_meeting - INFO - Индекс даты: 1, время: 15:00
+2026-03-18 13:10:33,810 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 13:10:33,810 - handlers.create_meeting - INFO - Время 15:00 добавлено в выбранные
+2026-03-18 13:10:33,810 - handlers.create_meeting - INFO - Текущие выбранные времена для 19.03.2026: ['13:00', '15:00']
+2026-03-18 13:10:33,988 - aiogram.event - INFO - Update id=693994910 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 13:10:34,841 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал время с callback_data: time_1_16:00
+2026-03-18 13:10:34,843 - handlers.create_meeting - INFO - Индекс даты: 1, время: 16:00
+2026-03-18 13:10:34,843 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 13:10:34,843 - handlers.create_meeting - INFO - Время 16:00 добавлено в выбранные
+2026-03-18 13:10:34,843 - handlers.create_meeting - INFO - Текущие выбранные времена для 19.03.2026: ['13:00', '15:00', '16:00']
+2026-03-18 13:10:35,021 - aiogram.event - INFO - Update id=693994911 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:10:35,969 - handlers.create_meeting - INFO - Пользователь 6468732318 нажал кнопку 'Далее'
+2026-03-18 13:10:35,969 - handlers.create_meeting - INFO - Текущее состояние: CreateMeeting:choosing_time
+2026-03-18 13:10:35,969 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 13:10:35,969 - handlers.create_meeting - INFO - Текущий индекс: 1
+2026-03-18 13:10:35,969 - handlers.create_meeting - INFO - Текущая дата: 19.03.2026
+2026-03-18 13:10:35,969 - handlers.create_meeting - INFO - Выбранное время для 19.03.2026: ['13:00', '15:00', '16:00']
+2026-03-18 13:10:35,971 - handlers.create_meeting - INFO - Все даты обработаны, сохраняем встречу
+2026-03-18 13:10:35,971 - handlers.create_meeting - INFO - Начало сохранения встречи для пользователя 6468732318
+2026-03-18 13:10:35,979 - handlers.create_meeting - INFO - Создана встреча с ID: 27
+2026-03-18 13:10:35,979 - handlers.create_meeting - INFO - Часовой пояс пользователя: UTC+3
+2026-03-18 13:10:35,979 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 13:10:35,979 - handlers.create_meeting - INFO - Выбранные времена: {'18.03.2026': ['13:00', '15:00', '16:00'], '19.03.2026': ['13:00', '15:00', '16:00']}
+2026-03-18 13:10:35,979 - handlers.create_meeting - INFO - Добавление варианта: 18.03.2026 13:00
+2026-03-18 13:10:35,989 - handlers.create_meeting - INFO - Добавление варианта: 18.03.2026 15:00
+2026-03-18 13:10:35,996 - handlers.create_meeting - INFO - Добавление варианта: 18.03.2026 16:00
+2026-03-18 13:10:36,004 - handlers.create_meeting - INFO - Добавление варианта: 19.03.2026 13:00
+2026-03-18 13:10:36,010 - handlers.create_meeting - INFO - Добавление варианта: 19.03.2026 15:00
+2026-03-18 13:10:36,016 - handlers.create_meeting - INFO - Добавление варианта: 19.03.2026 16:00
+2026-03-18 13:10:36,023 - handlers.create_meeting - INFO - Добавлено вариантов времени: 6
+2026-03-18 13:10:36,023 - handlers.create_meeting - INFO - Сгенерирована ссылка: https://t.me/PlanTogether_bot?start=meeting_27
+2026-03-18 13:10:36,127 - handlers.create_meeting - INFO - Встреча 27 успешно создана пользователем 6468732318
+2026-03-18 13:10:36,129 - handlers.create_meeting - INFO - Временные данные для пользователя 6468732318 очищены
+2026-03-18 13:10:36,208 - aiogram.event - INFO - Update id=693994912 is handled. Duration 235 ms by bot id=8248055852
+2026-03-18 13:10:45,942 - handlers.start - INFO - Пользователь 272446792 перешел по ссылке на встречу 27
+2026-03-18 13:10:45,975 - handlers.start - INFO - Пользователь 1 добавлен в участники встречи 27
+2026-03-18 13:10:46,196 - handlers.start - INFO - Пользователю 1 показаны варианты для встречи 27
+2026-03-18 13:10:46,197 - aiogram.event - INFO - Update id=693994913 is handled. Duration 266 ms by bot id=8248055852
+2026-03-18 13:10:49,827 - aiogram.event - INFO - Update id=693994914 is handled. Duration 360 ms by bot id=8248055852
+2026-03-18 13:10:50,593 - aiogram.event - INFO - Update id=693994915 is handled. Duration 343 ms by bot id=8248055852
+2026-03-18 13:10:51,252 - aiogram.event - INFO - Update id=693994916 is handled. Duration 281 ms by bot id=8248055852
+2026-03-18 13:10:51,924 - aiogram.event - INFO - Update id=693994917 is handled. Duration 218 ms by bot id=8248055852
+2026-03-18 13:10:53,029 - handlers.voting - INFO - Пользователь 272446792 завершил голосование в встрече 27
+2026-03-18 13:10:53,119 - aiogram.event - INFO - Update id=693994918 is handled. Duration 343 ms by bot id=8248055852
+2026-03-18 13:10:54,850 - aiogram.event - INFO - Update id=693994919 is handled. Duration 139 ms by bot id=8248055852
+2026-03-18 13:10:57,649 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 27
+2026-03-18 13:10:57,815 - aiogram.event - INFO - Update id=693994920 is handled. Duration 171 ms by bot id=8248055852
+2026-03-18 13:11:00,665 - aiogram.event - INFO - Update id=693994921 is handled. Duration 219 ms by bot id=8248055852
+2026-03-18 13:11:02,863 - handlers.my_meetings - INFO - Пользователь 272446792 запросил удаление своих прошедших встреч
+2026-03-18 13:11:02,948 - aiogram.event - INFO - Update id=693994922 is handled. Duration 110 ms by bot id=8248055852
+2026-03-18 13:11:11,836 - aiogram.event - INFO - Update id=693994923 is handled. Duration 110 ms by bot id=8248055852
+2026-03-18 13:11:13,372 - handlers.my_meetings - INFO - Пользователь 6468732318 запросил удаление своих прошедших встреч
+2026-03-18 13:11:13,539 - aiogram.event - INFO - Update id=693994924 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:11:25,964 - handlers.my_meetings - ERROR - Ошибка при подтверждении времени: invalid literal for int() with base 10: 'delete'
+Traceback (most recent call last):
+  File "E:\meeting_planner_bot\handlers\my_meetings.py", line 284, in confirm_final_time
+    meeting_id = int(parts[1])
+                 ^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'delete'
+2026-03-18 13:11:26,045 - aiogram.event - INFO - Update id=693994925 is handled. Duration 93 ms by bot id=8248055852
+2026-03-18 13:11:29,418 - handlers.my_meetings - ERROR - Ошибка при подтверждении времени: invalid literal for int() with base 10: 'delete'
+Traceback (most recent call last):
+  File "E:\meeting_planner_bot\handlers\my_meetings.py", line 284, in confirm_final_time
+    meeting_id = int(parts[1])
+                 ^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'delete'
+2026-03-18 13:11:29,545 - aiogram.event - INFO - Update id=693994926 is handled. Duration 140 ms by bot id=8248055852
+2026-03-18 13:11:33,949 - aiogram.event - INFO - Update id=693994927 is handled. Duration 125 ms by bot id=8248055852
+2026-03-18 13:13:47,338 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-18 13:13:47,338 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-18 13:13:47,339 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8248055852)
+2026-03-18 13:13:47,600 - aiogram.dispatcher - INFO - Polling stopped for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-18 13:13:47,602 - __main__ - INFO - Бот остановлен пользователем
+2026-03-18 13:13:52,735 - __main__ - INFO - Инициализация бота...
+2026-03-18 13:13:53,009 - __main__ - INFO - Запуск бота...
+2026-03-18 13:13:53,012 - database.db - INFO - Таблицы в базе данных созданы/проверены
+2026-03-18 13:13:53,013 - __main__ - INFO - База данных инициализирована
+2026-03-18 13:13:53,013 - handlers.reminders - INFO - Фоновая задача напоминаний запущена
+2026-03-18 13:13:53,014 - handlers.reminders - INFO - Задача напоминаний запущена
+2026-03-18 13:13:53,265 - __main__ - INFO - Бот @PlanTogether_bot (ID: 8248055852) запущен и готов к работе
+2026-03-18 13:13:53,335 - __main__ - INFO - Начинаем polling...
+2026-03-18 13:13:53,335 - aiogram.dispatcher - INFO - Start polling
+2026-03-18 13:13:53,404 - aiogram.dispatcher - INFO - Run polling for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-18 13:13:56,144 - handlers.my_meetings - INFO - Пользователь 272446792 запросил удаление своих прошедших встреч
+2026-03-18 13:13:56,379 - aiogram.event - INFO - Update id=693994928 is handled. Duration 234 ms by bot id=8248055852
+2026-03-18 13:14:01,521 - aiogram.event - INFO - Update id=693994929 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:14:03,191 - handlers.my_meetings - INFO - Пользователь 6468732318 запросил удаление своих прошедших встреч
+2026-03-18 13:14:03,379 - aiogram.event - INFO - Update id=693994930 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 13:14:05,546 - handlers.my_meetings - WARNING - Нечисловые значения в confirm_final_time: confirm_delete_past
+2026-03-18 13:14:05,546 - aiogram.event - INFO - Update id=693994931 is handled. Duration 0 ms by bot id=8248055852
+2026-03-18 13:14:15,829 - aiogram.event - INFO - Update id=693994932 is handled. Duration 141 ms by bot id=8248055852
+2026-03-18 13:14:22,348 - handlers.my_meetings - WARNING - Нечисловые значения в confirm_final_time: confirm_delete_past
+2026-03-18 13:14:22,349 - aiogram.event - INFO - Update id=693994933 is handled. Duration 0 ms by bot id=8248055852
+2026-03-18 13:14:24,674 - aiogram.event - INFO - Update id=693994934 is handled. Duration 93 ms by bot id=8248055852
+2026-03-18 13:14:27,577 - handlers.my_meetings - INFO - Пользователь 6468732318 просматривает встречу 27
+2026-03-18 13:14:27,797 - aiogram.event - INFO - Update id=693994935 is handled. Duration 218 ms by bot id=8248055852
+2026-03-18 13:14:31,553 - aiogram.event - INFO - Update id=693994936 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:14:32,611 - handlers.my_meetings - INFO - Пользователь 6468732318 запросил удаление своих прошедших встреч
+2026-03-18 13:14:32,784 - aiogram.event - INFO - Update id=693994937 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 13:14:35,570 - aiogram.event - INFO - Update id=693994938 is handled. Duration 171 ms by bot id=8248055852
+2026-03-18 13:14:36,770 - handlers.my_meetings - INFO - Пользователь 6468732318 запросил удаление своих прошедших встреч
+2026-03-18 13:14:36,951 - aiogram.event - INFO - Update id=693994939 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 13:14:39,344 - handlers.my_meetings - WARNING - Нечисловые значения в confirm_final_time: confirm_delete_past
+2026-03-18 13:14:39,345 - aiogram.event - INFO - Update id=693994940 is handled. Duration 0 ms by bot id=8248055852
+2026-03-18 13:19:48,129 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-18 13:19:48,131 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-18 13:19:48,131 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8248055852)
+2026-03-18 13:19:48,386 - aiogram.dispatcher - INFO - Polling stopped for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-18 13:19:48,389 - __main__ - INFO - Бот остановлен пользователем
+2026-03-18 13:19:54,293 - __main__ - INFO - Инициализация бота...
+2026-03-18 14:03:31,985 - __main__ - INFO - Инициализация бота...
+2026-03-18 14:03:32,231 - __main__ - INFO - Запуск бота...
+2026-03-18 14:03:32,235 - database.db - INFO - Таблицы в базе данных созданы/проверены
+2026-03-18 14:03:32,235 - __main__ - INFO - База данных инициализирована
+2026-03-18 14:03:32,235 - handlers.reminders - INFO - Фоновая задача напоминаний запущена
+2026-03-18 14:03:32,236 - handlers.reminders - INFO - Задача напоминаний запущена
+2026-03-18 14:03:32,515 - __main__ - INFO - Бот @PlanTogether_bot (ID: 8248055852) запущен и готов к работе
+2026-03-18 14:03:32,591 - __main__ - INFO - Начинаем polling...
+2026-03-18 14:03:32,591 - aiogram.dispatcher - INFO - Start polling
+2026-03-18 14:03:32,662 - aiogram.dispatcher - INFO - Run polling for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-18 14:03:45,557 - aiogram.event - INFO - Update id=693994942 is handled. Duration 655 ms by bot id=8248055852
+2026-03-18 14:03:48,545 - handlers.my_meetings - INFO - Пользователь 272446792 запросил удаление своих прошедших встреч
+2026-03-18 14:03:48,735 - aiogram.event - INFO - Update id=693994943 is handled. Duration 202 ms by bot id=8248055852
+2026-03-18 14:03:54,262 - handlers.my_meetings - INFO - CONFIRM_DELETE_PAST вызван с callback_data: confirm_delete_past
+2026-03-18 14:03:54,269 - handlers.my_meetings - INFO - Пользователь 272446792 подтвердил удаление прошедших встреч
+2026-03-18 14:03:54,274 - database.db - INFO - Найдено 1 встреч для удаления у пользователя 1: [26]
+2026-03-18 14:03:54,487 - aiogram.event - INFO - Update id=693994944 is handled. Duration 234 ms by bot id=8248055852
+2026-03-18 14:03:59,019 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 27
+2026-03-18 14:03:59,204 - aiogram.event - INFO - Update id=693994945 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 14:04:00,596 - aiogram.event - INFO - Update id=693994946 is handled. Duration 234 ms by bot id=8248055852
+2026-03-18 14:04:57,323 - handlers.create_meeting - INFO - Пользователь 272446792 начинает создание встречи
+2026-03-18 14:04:57,424 - aiogram.event - INFO - Update id=693994947 is handled. Duration 110 ms by bot id=8248055852
+2026-03-18 14:05:04,415 - handlers.create_meeting - INFO - Пользователь 272446792 ввел название: 14:05
+2026-03-18 14:05:04,517 - aiogram.event - INFO - Update id=693994948 is handled. Duration 109 ms by bot id=8248055852
+2026-03-18 14:05:05,878 - handlers.create_meeting - INFO - Пользователь 272446792 ввел описание: авпролд
+2026-03-18 14:05:05,879 - handlers.create_meeting - INFO - Инициализированы временные данные для пользователя 272446792
+2026-03-18 14:05:05,986 - aiogram.event - INFO - Update id=693994949 is handled. Duration 109 ms by bot id=8248055852
+2026-03-18 14:05:07,233 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал дату с callback_data: date_0
+2026-03-18 14:05:07,237 - handlers.create_meeting - INFO - Индекс выбранной даты: 0
+2026-03-18 14:05:07,238 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 14:05:07,238 - handlers.create_meeting - INFO - Дата 18.03.2026 добавлена в выбранные
+2026-03-18 14:05:07,238 - handlers.create_meeting - INFO - Текущие выбранные даты: ['18.03.2026']
+2026-03-18 14:05:07,496 - aiogram.event - INFO - Update id=693994950 is handled. Duration 265 ms by bot id=8248055852
+2026-03-18 14:05:07,795 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал дату с callback_data: date_1
+2026-03-18 14:05:07,797 - handlers.create_meeting - INFO - Индекс выбранной даты: 1
+2026-03-18 14:05:07,797 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 14:05:07,797 - handlers.create_meeting - INFO - Дата 19.03.2026 добавлена в выбранные
+2026-03-18 14:05:07,797 - handlers.create_meeting - INFO - Текущие выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 14:05:08,080 - aiogram.event - INFO - Update id=693994951 is handled. Duration 281 ms by bot id=8248055852
+2026-03-18 14:05:08,757 - handlers.create_meeting - INFO - Пользователь 272446792 завершил выбор дат
+2026-03-18 14:05:08,757 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 14:05:08,759 - handlers.create_meeting - INFO - Переход к выбору времени для даты: 18.03.2026
+2026-03-18 14:05:08,759 - handlers.create_meeting - INFO - Индекс даты 18.03.2026: 0
+2026-03-18 14:05:08,760 - handlers.create_meeting - INFO - Ранее выбранное время для 18.03.2026: []
+2026-03-18 14:05:08,934 - aiogram.event - INFO - Update id=693994952 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 14:05:10,127 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал время с callback_data: time_0_16:00
+2026-03-18 14:05:10,130 - handlers.create_meeting - INFO - Индекс даты: 0, время: 16:00
+2026-03-18 14:05:10,131 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 14:05:10,132 - handlers.create_meeting - INFO - Инициализирован список времени для даты 18.03.2026
+2026-03-18 14:05:10,132 - handlers.create_meeting - INFO - Время 16:00 добавлено в выбранные
+2026-03-18 14:05:10,132 - handlers.create_meeting - INFO - Текущие выбранные времена для 18.03.2026: ['16:00']
+2026-03-18 14:05:10,300 - aiogram.event - INFO - Update id=693994953 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 14:05:10,913 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал время с callback_data: time_0_17:00
+2026-03-18 14:05:10,915 - handlers.create_meeting - INFO - Индекс даты: 0, время: 17:00
+2026-03-18 14:05:10,915 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 14:05:10,915 - handlers.create_meeting - INFO - Время 17:00 добавлено в выбранные
+2026-03-18 14:05:10,916 - handlers.create_meeting - INFO - Текущие выбранные времена для 18.03.2026: ['16:00', '17:00']
+2026-03-18 14:05:11,107 - aiogram.event - INFO - Update id=693994954 is handled. Duration 202 ms by bot id=8248055852
+2026-03-18 14:05:14,564 - handlers.create_meeting - INFO - Пользователь 272446792 нажал кнопку 'Далее'
+2026-03-18 14:05:14,565 - handlers.create_meeting - INFO - Текущее состояние: CreateMeeting:choosing_time
+2026-03-18 14:05:14,565 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 14:05:14,565 - handlers.create_meeting - INFO - Текущий индекс: 0
+2026-03-18 14:05:14,565 - handlers.create_meeting - INFO - Текущая дата: 18.03.2026
+2026-03-18 14:05:14,565 - handlers.create_meeting - INFO - Выбранное время для 18.03.2026: ['16:00', '17:00']
+2026-03-18 14:05:14,567 - handlers.create_meeting - INFO - Переход к следующей дате: 19.03.2026
+2026-03-18 14:05:14,568 - handlers.create_meeting - INFO - Индекс следующей даты: 1
+2026-03-18 14:05:14,568 - handlers.create_meeting - INFO - Ранее выбранное время для 19.03.2026: []
+2026-03-18 14:05:14,883 - aiogram.event - INFO - Update id=693994955 is handled. Duration 313 ms by bot id=8248055852
+2026-03-18 14:05:15,686 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал время с callback_data: time_1_13:00
+2026-03-18 14:05:15,691 - handlers.create_meeting - INFO - Индекс даты: 1, время: 13:00
+2026-03-18 14:05:15,692 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 14:05:15,692 - handlers.create_meeting - INFO - Инициализирован список времени для даты 19.03.2026
+2026-03-18 14:05:15,693 - handlers.create_meeting - INFO - Время 13:00 добавлено в выбранные
+2026-03-18 14:05:15,693 - handlers.create_meeting - INFO - Текущие выбранные времена для 19.03.2026: ['13:00']
+2026-03-18 14:05:16,050 - aiogram.event - INFO - Update id=693994956 is handled. Duration 360 ms by bot id=8248055852
+2026-03-18 14:05:16,312 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал время с callback_data: time_1_10:00
+2026-03-18 14:05:16,315 - handlers.create_meeting - INFO - Индекс даты: 1, время: 10:00
+2026-03-18 14:05:16,315 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 14:05:16,315 - handlers.create_meeting - INFO - Время 10:00 добавлено в выбранные
+2026-03-18 14:05:16,315 - handlers.create_meeting - INFO - Текущие выбранные времена для 19.03.2026: ['13:00', '10:00']
+2026-03-18 14:05:16,649 - aiogram.event - INFO - Update id=693994957 is handled. Duration 328 ms by bot id=8248055852
+2026-03-18 14:05:16,927 - handlers.create_meeting - INFO - Пользователь 272446792 выбрал время с callback_data: time_1_14:00
+2026-03-18 14:05:16,929 - handlers.create_meeting - INFO - Индекс даты: 1, время: 14:00
+2026-03-18 14:05:16,929 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 14:05:16,930 - handlers.create_meeting - INFO - Время 14:00 добавлено в выбранные
+2026-03-18 14:05:16,930 - handlers.create_meeting - INFO - Текущие выбранные времена для 19.03.2026: ['13:00', '10:00', '14:00']
+2026-03-18 14:05:17,107 - aiogram.event - INFO - Update id=693994958 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 14:05:18,376 - handlers.create_meeting - INFO - Пользователь 272446792 нажал кнопку 'Далее'
+2026-03-18 14:05:18,376 - handlers.create_meeting - INFO - Текущее состояние: CreateMeeting:choosing_time
+2026-03-18 14:05:18,376 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 14:05:18,376 - handlers.create_meeting - INFO - Текущий индекс: 1
+2026-03-18 14:05:18,377 - handlers.create_meeting - INFO - Текущая дата: 19.03.2026
+2026-03-18 14:05:18,377 - handlers.create_meeting - INFO - Выбранное время для 19.03.2026: ['13:00', '10:00', '14:00']
+2026-03-18 14:05:18,378 - handlers.create_meeting - INFO - Все даты обработаны, сохраняем встречу
+2026-03-18 14:05:18,378 - handlers.create_meeting - INFO - Начало сохранения встречи для пользователя 272446792
+2026-03-18 14:05:18,386 - handlers.create_meeting - INFO - Создана встреча с ID: 28
+2026-03-18 14:05:18,386 - handlers.create_meeting - INFO - Часовой пояс пользователя: UTC+5
+2026-03-18 14:05:18,386 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 14:05:18,386 - handlers.create_meeting - INFO - Выбранные времена: {'18.03.2026': ['16:00', '17:00'], '19.03.2026': ['13:00', '10:00', '14:00']}
+2026-03-18 14:05:18,386 - handlers.create_meeting - INFO - Добавление варианта: 18.03.2026 16:00
+2026-03-18 14:05:18,398 - handlers.create_meeting - INFO - Добавление варианта: 18.03.2026 17:00
+2026-03-18 14:05:18,405 - handlers.create_meeting - INFO - Добавление варианта: 19.03.2026 13:00
+2026-03-18 14:05:18,415 - handlers.create_meeting - INFO - Добавление варианта: 19.03.2026 10:00
+2026-03-18 14:05:18,423 - handlers.create_meeting - INFO - Добавление варианта: 19.03.2026 14:00
+2026-03-18 14:05:18,431 - handlers.create_meeting - INFO - Добавлено вариантов времени: 5
+2026-03-18 14:05:18,431 - handlers.create_meeting - INFO - Сгенерирована ссылка: https://t.me/PlanTogether_bot?start=meeting_28
+2026-03-18 14:05:18,557 - handlers.create_meeting - INFO - Встреча 28 успешно создана пользователем 272446792
+2026-03-18 14:05:18,558 - handlers.create_meeting - INFO - Временные данные для пользователя 272446792 очищены
+2026-03-18 14:05:18,646 - aiogram.event - INFO - Update id=693994959 is handled. Duration 265 ms by bot id=8248055852
+2026-03-18 14:05:20,533 - aiogram.event - INFO - Update id=693994960 is handled. Duration 109 ms by bot id=8248055852
+2026-03-18 14:05:22,180 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 28
+2026-03-18 14:05:22,493 - aiogram.event - INFO - Update id=693994961 is handled. Duration 311 ms by bot id=8248055852
+2026-03-18 14:05:24,758 - handlers.my_meetings - INFO - Пользователь 272446792 редактирует встречу 28
+2026-03-18 14:05:24,762 - handlers.my_meetings - INFO - Пользователь 272446792 переведен в состояние EditMeeting.choosing_option
+2026-03-18 14:05:25,003 - aiogram.event - INFO - Update id=693994962 is handled. Duration 250 ms by bot id=8248055852
+2026-03-18 14:05:27,484 - handlers.my_meetings - INFO - DELETE_OPTION вызван с callback_data: del_28_212
+2026-03-18 14:05:27,485 - handlers.my_meetings - INFO - Текущее состояние: EditMeeting:choosing_option
+2026-03-18 14:05:27,485 - handlers.my_meetings - INFO - Пользователь 272446792 удаляет вариант 212 из встречи 28
+2026-03-18 14:05:27,496 - handlers.my_meetings - INFO - Вариант 212 и связанные голоса удалены
+2026-03-18 14:05:27,769 - aiogram.event - INFO - Update id=693994963 is handled. Duration 297 ms by bot id=8248055852
+2026-03-18 14:05:29,302 - handlers.my_meetings - INFO - ADD_OPTION_START вызван с callback_data: add_28
+2026-03-18 14:05:29,304 - handlers.my_meetings - INFO - Пользователь 272446792 переведен в состояние EditMeeting.adding_new_time
+2026-03-18 14:05:29,474 - aiogram.event - INFO - Update id=693994964 is handled. Duration 171 ms by bot id=8248055852
+2026-03-18 14:05:30,285 - handlers.my_meetings - INFO - ADD_OPTION_DATE вызван с callback_data: date_0
+2026-03-18 14:05:30,478 - aiogram.event - INFO - Update id=693994965 is handled. Duration 202 ms by bot id=8248055852
+2026-03-18 14:05:31,599 - handlers.my_meetings - INFO - DATES_DONE вызван с callback_data: dates_done
+2026-03-18 14:05:31,783 - aiogram.event - INFO - Update id=693994966 is handled. Duration 202 ms by bot id=8248055852
+2026-03-18 14:05:32,834 - handlers.my_meetings - INFO - ADD_OPTION_TIME вызван с callback_data: time_0_15:00
+2026-03-18 14:05:32,836 - handlers.my_meetings - INFO - Индекс даты: 0, время: 15:00
+2026-03-18 14:05:32,836 - handlers.my_meetings - INFO - Время 15:00 добавлено в выбранных для даты 18.03.2026
+2026-03-18 14:05:32,837 - handlers.my_meetings - INFO - Текущие выбранные времена для 18.03.2026: ['15:00']
+2026-03-18 14:05:33,096 - aiogram.event - INFO - Update id=693994967 is handled. Duration 264 ms by bot id=8248055852
+2026-03-18 14:05:33,459 - handlers.my_meetings - INFO - ADD_OPTION_TIME вызван с callback_data: time_done
+2026-03-18 14:05:33,461 - handlers.my_meetings - INFO - Получена команда time_done, вызываем соответствующий хендлер
+2026-03-18 14:05:33,461 - handlers.my_meetings - INFO - TIME_DONE вызван с callback_data: time_done
+2026-03-18 14:05:33,461 - handlers.my_meetings - INFO - Пользователь 272446792 нажал 'Далее' при добавлении вариантов
+2026-03-18 14:05:33,463 - handlers.my_meetings - INFO - Выбранные даты: ['18.03.2026']
+2026-03-18 14:05:33,463 - handlers.my_meetings - INFO - Текущий индекс: 0
+2026-03-18 14:05:33,463 - handlers.my_meetings - INFO - Выбранное время для 18.03.2026: ['15:00']
+2026-03-18 14:05:33,463 - handlers.my_meetings - INFO - Все даты обработаны, сохраняем новые варианты
+2026-03-18 14:05:33,463 - handlers.my_meetings - INFO - Сохранение новых вариантов для пользователя 272446792
+2026-03-18 14:05:33,479 - handlers.my_meetings - INFO - Добавлен вариант: 18.03.2026 15:00
+2026-03-18 14:05:33,590 - handlers.my_meetings - INFO - Добавлено 1 новых вариантов к встрече 28
+2026-03-18 14:05:33,591 - handlers.my_meetings - INFO - Пользователь 272446792 возвращен в состояние EditMeeting.choosing_option
+2026-03-18 14:05:33,675 - aiogram.event - INFO - Update id=693994968 is handled. Duration 218 ms by bot id=8248055852
+2026-03-18 14:05:35,065 - handlers.my_meetings - INFO - FINISH_EDIT вызван с callback_data: finish_28
+2026-03-18 14:05:35,311 - aiogram.event - INFO - Update id=693994969 is handled. Duration 250 ms by bot id=8248055852
+2026-03-18 14:09:35,613 - aiogram.event - INFO - Update id=693994970 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 14:09:37,028 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 27
+2026-03-18 14:09:37,200 - aiogram.event - INFO - Update id=693994971 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 14:10:06,453 - aiogram.event - INFO - Update id=693994972 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 14:10:21,578 - handlers.start - INFO - Пользователь 6468732318 перешел по ссылке на встречу 28
+2026-03-18 14:10:21,613 - handlers.start - INFO - Пользователь 2 добавлен в участники встречи 28
+2026-03-18 14:10:21,717 - handlers.start - INFO - Пользователю 2 показаны варианты для встречи 28
+2026-03-18 14:10:21,718 - aiogram.event - INFO - Update id=693994973 is handled. Duration 139 ms by bot id=8248055852
+2026-03-18 14:27:06,309 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-18 14:27:06,310 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-18 14:27:06,310 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8248055852)
+2026-03-18 14:27:06,575 - aiogram.dispatcher - INFO - Polling stopped for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-18 14:27:06,577 - __main__ - INFO - Бот остановлен пользователем
+2026-03-18 14:28:11,223 - __main__ - INFO - Инициализация бота...
+2026-03-18 14:28:11,444 - __main__ - INFO - Запуск бота...
+2026-03-18 14:28:11,447 - database.db - INFO - Таблицы в базе данных созданы/проверены
+2026-03-18 14:28:11,448 - __main__ - INFO - База данных инициализирована
+2026-03-18 14:28:11,448 - handlers.reminders - INFO - Фоновая задача напоминаний запущена
+2026-03-18 14:28:11,448 - handlers.reminders - INFO - Задача напоминаний запущена
+2026-03-18 14:28:11,720 - __main__ - INFO - Бот @PlanTogether_bot (ID: 8248055852) запущен и готов к работе
+2026-03-18 14:28:11,797 - __main__ - INFO - Начинаем polling...
+2026-03-18 14:28:11,798 - aiogram.dispatcher - INFO - Start polling
+2026-03-18 14:28:11,875 - aiogram.dispatcher - INFO - Run polling for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-18 14:28:19,359 - aiogram.event - INFO - Update id=693994974 is handled. Duration 265 ms by bot id=8248055852
+2026-03-18 14:28:23,145 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 28
+2026-03-18 14:28:23,397 - aiogram.event - INFO - Update id=693994975 is handled. Duration 250 ms by bot id=8248055852
+2026-03-18 14:28:25,778 - aiogram.event - INFO - Update id=693994976 is handled. Duration 500 ms by bot id=8248055852
+2026-03-18 14:28:26,386 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 27
+2026-03-18 14:28:26,582 - aiogram.event - INFO - Update id=693994977 is handled. Duration 203 ms by bot id=8248055852
+2026-03-18 14:28:31,018 - aiogram.event - INFO - Update id=693994978 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 14:28:31,695 - handlers.my_meetings - INFO - Пользователь 272446792 запросил удаление своих прошедших встреч
+2026-03-18 14:28:31,877 - aiogram.event - INFO - Update id=693994979 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 14:28:32,957 - handlers.my_meetings - INFO - CONFIRM_DELETE_PAST вызван с callback_data: confirm_delete_past
+2026-03-18 14:28:32,961 - handlers.my_meetings - INFO - Пользователь 272446792 подтвердил удаление прошедших встреч
+2026-03-18 14:28:32,963 - database.db - INFO - Найдено 1 встреч для удаления у пользователя 1: [28]
+2026-03-18 14:28:33,152 - aiogram.event - INFO - Update id=693994980 is handled. Duration 202 ms by bot id=8248055852
+2026-03-18 14:28:53,552 - aiogram.event - INFO - Update id=693994981 is handled. Duration 110 ms by bot id=8248055852
+2026-03-18 14:28:59,582 - handlers.my_meetings - INFO - Пользователь 6468732318 запросил удаление своих прошедших встреч
+2026-03-18 14:28:59,883 - aiogram.event - INFO - Update id=693994982 is handled. Duration 296 ms by bot id=8248055852
+2026-03-18 14:29:01,166 - handlers.my_meetings - INFO - CONFIRM_DELETE_PAST вызван с callback_data: confirm_delete_past
+2026-03-18 14:29:01,168 - handlers.my_meetings - INFO - Пользователь 6468732318 подтвердил удаление прошедших встреч
+2026-03-18 14:29:01,169 - database.db - INFO - Найдено 1 встреч для удаления у пользователя 2: [27]
+2026-03-18 14:29:01,575 - aiogram.event - INFO - Update id=693994983 is handled. Duration 422 ms by bot id=8248055852
+2026-03-18 14:29:03,725 - handlers.create_meeting - INFO - Пользователь 6468732318 начинает создание встречи
+2026-03-18 14:29:03,837 - aiogram.event - INFO - Update id=693994984 is handled. Duration 110 ms by bot id=8248055852
+2026-03-18 14:29:09,600 - handlers.create_meeting - INFO - Пользователь 6468732318 ввел название: 14.29
+2026-03-18 14:29:09,701 - aiogram.event - INFO - Update id=693994985 is handled. Duration 110 ms by bot id=8248055852
+2026-03-18 14:29:12,570 - handlers.create_meeting - INFO - Пользователь 6468732318 ввел описание: Овоала
+2026-03-18 14:29:12,572 - handlers.create_meeting - INFO - Инициализированы временные данные для пользователя 6468732318
+2026-03-18 14:29:12,668 - aiogram.event - INFO - Update id=693994986 is handled. Duration 110 ms by bot id=8248055852
+2026-03-18 14:29:15,505 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал дату с callback_data: date_0
+2026-03-18 14:29:15,508 - handlers.create_meeting - INFO - Индекс выбранной даты: 0
+2026-03-18 14:29:15,508 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 14:29:15,508 - handlers.create_meeting - INFO - Дата 18.03.2026 добавлена в выбранные
+2026-03-18 14:29:15,509 - handlers.create_meeting - INFO - Текущие выбранные даты: ['18.03.2026']
+2026-03-18 14:29:15,691 - aiogram.event - INFO - Update id=693994987 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 14:29:16,529 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал дату с callback_data: date_1
+2026-03-18 14:29:16,531 - handlers.create_meeting - INFO - Индекс выбранной даты: 1
+2026-03-18 14:29:16,531 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 14:29:16,531 - handlers.create_meeting - INFO - Дата 19.03.2026 добавлена в выбранные
+2026-03-18 14:29:16,531 - handlers.create_meeting - INFO - Текущие выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 14:29:16,705 - aiogram.event - INFO - Update id=693994988 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 14:29:18,207 - handlers.create_meeting - INFO - Пользователь 6468732318 завершил выбор дат
+2026-03-18 14:29:18,208 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 14:29:18,210 - handlers.create_meeting - INFO - Переход к выбору времени для даты: 18.03.2026
+2026-03-18 14:29:18,210 - handlers.create_meeting - INFO - Индекс даты 18.03.2026: 0
+2026-03-18 14:29:18,211 - handlers.create_meeting - INFO - Ранее выбранное время для 18.03.2026: []
+2026-03-18 14:29:18,442 - aiogram.event - INFO - Update id=693994989 is handled. Duration 233 ms by bot id=8248055852
+2026-03-18 14:29:21,736 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал время с callback_data: time_0_16:00
+2026-03-18 14:29:21,738 - handlers.create_meeting - INFO - Индекс даты: 0, время: 16:00
+2026-03-18 14:29:21,739 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 14:29:21,739 - handlers.create_meeting - INFO - Инициализирован список времени для даты 18.03.2026
+2026-03-18 14:29:21,739 - handlers.create_meeting - INFO - Время 16:00 добавлено в выбранные
+2026-03-18 14:29:21,739 - handlers.create_meeting - INFO - Текущие выбранные времена для 18.03.2026: ['16:00']
+2026-03-18 14:29:21,928 - aiogram.event - INFO - Update id=693994990 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 14:29:22,605 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал время с callback_data: time_0_17:00
+2026-03-18 14:29:22,607 - handlers.create_meeting - INFO - Индекс даты: 0, время: 17:00
+2026-03-18 14:29:22,607 - handlers.create_meeting - INFO - Выбрана дата: 18.03.2026
+2026-03-18 14:29:22,608 - handlers.create_meeting - INFO - Время 17:00 добавлено в выбранные
+2026-03-18 14:29:22,608 - handlers.create_meeting - INFO - Текущие выбранные времена для 18.03.2026: ['16:00', '17:00']
+2026-03-18 14:29:22,782 - aiogram.event - INFO - Update id=693994991 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 14:29:23,433 - handlers.create_meeting - INFO - Пользователь 6468732318 нажал кнопку 'Далее'
+2026-03-18 14:29:23,433 - handlers.create_meeting - INFO - Текущее состояние: CreateMeeting:choosing_time
+2026-03-18 14:29:23,433 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 14:29:23,434 - handlers.create_meeting - INFO - Текущий индекс: 0
+2026-03-18 14:29:23,434 - handlers.create_meeting - INFO - Текущая дата: 18.03.2026
+2026-03-18 14:29:23,434 - handlers.create_meeting - INFO - Выбранное время для 18.03.2026: ['16:00', '17:00']
+2026-03-18 14:29:23,435 - handlers.create_meeting - INFO - Переход к следующей дате: 19.03.2026
+2026-03-18 14:29:23,435 - handlers.create_meeting - INFO - Индекс следующей даты: 1
+2026-03-18 14:29:23,435 - handlers.create_meeting - INFO - Ранее выбранное время для 19.03.2026: []
+2026-03-18 14:29:23,650 - aiogram.event - INFO - Update id=693994992 is handled. Duration 218 ms by bot id=8248055852
+2026-03-18 14:29:24,344 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал время с callback_data: time_1_14:00
+2026-03-18 14:29:24,346 - handlers.create_meeting - INFO - Индекс даты: 1, время: 14:00
+2026-03-18 14:29:24,346 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 14:29:24,347 - handlers.create_meeting - INFO - Инициализирован список времени для даты 19.03.2026
+2026-03-18 14:29:24,347 - handlers.create_meeting - INFO - Время 14:00 добавлено в выбранные
+2026-03-18 14:29:24,347 - handlers.create_meeting - INFO - Текущие выбранные времена для 19.03.2026: ['14:00']
+2026-03-18 14:29:24,520 - aiogram.event - INFO - Update id=693994993 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 14:29:25,328 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал время с callback_data: time_1_15:00
+2026-03-18 14:29:25,329 - handlers.create_meeting - INFO - Индекс даты: 1, время: 15:00
+2026-03-18 14:29:25,330 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 14:29:25,330 - handlers.create_meeting - INFO - Время 15:00 добавлено в выбранные
+2026-03-18 14:29:25,330 - handlers.create_meeting - INFO - Текущие выбранные времена для 19.03.2026: ['14:00', '15:00']
+2026-03-18 14:29:25,569 - aiogram.event - INFO - Update id=693994994 is handled. Duration 233 ms by bot id=8248055852
+2026-03-18 14:29:27,773 - handlers.create_meeting - INFO - Пользователь 6468732318 выбрал время с callback_data: time_1_16:00
+2026-03-18 14:29:27,775 - handlers.create_meeting - INFO - Индекс даты: 1, время: 16:00
+2026-03-18 14:29:27,775 - handlers.create_meeting - INFO - Выбрана дата: 19.03.2026
+2026-03-18 14:29:27,775 - handlers.create_meeting - INFO - Время 16:00 добавлено в выбранные
+2026-03-18 14:29:27,775 - handlers.create_meeting - INFO - Текущие выбранные времена для 19.03.2026: ['14:00', '15:00', '16:00']
+2026-03-18 14:29:27,979 - aiogram.event - INFO - Update id=693994995 is handled. Duration 218 ms by bot id=8248055852
+2026-03-18 14:29:28,888 - handlers.create_meeting - INFO - Пользователь 6468732318 нажал кнопку 'Далее'
+2026-03-18 14:29:28,889 - handlers.create_meeting - INFO - Текущее состояние: CreateMeeting:choosing_time
+2026-03-18 14:29:28,889 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 14:29:28,889 - handlers.create_meeting - INFO - Текущий индекс: 1
+2026-03-18 14:29:28,889 - handlers.create_meeting - INFO - Текущая дата: 19.03.2026
+2026-03-18 14:29:28,889 - handlers.create_meeting - INFO - Выбранное время для 19.03.2026: ['14:00', '15:00', '16:00']
+2026-03-18 14:29:28,891 - handlers.create_meeting - INFO - Все даты обработаны, сохраняем встречу
+2026-03-18 14:29:28,891 - handlers.create_meeting - INFO - Начало сохранения встречи для пользователя 6468732318
+2026-03-18 14:29:28,897 - handlers.create_meeting - INFO - Создана встреча с ID: 29
+2026-03-18 14:29:28,897 - handlers.create_meeting - INFO - Часовой пояс пользователя: UTC+3
+2026-03-18 14:29:28,897 - handlers.create_meeting - INFO - Выбранные даты: ['18.03.2026', '19.03.2026']
+2026-03-18 14:29:28,897 - handlers.create_meeting - INFO - Выбранные времена: {'18.03.2026': ['16:00', '17:00'], '19.03.2026': ['14:00', '15:00', '16:00']}
+2026-03-18 14:29:28,899 - handlers.create_meeting - INFO - Добавление варианта: 18.03.2026 16:00
+2026-03-18 14:29:28,911 - handlers.create_meeting - INFO - Добавление варианта: 18.03.2026 17:00
+2026-03-18 14:29:28,918 - handlers.create_meeting - INFO - Добавление варианта: 19.03.2026 14:00
+2026-03-18 14:29:28,926 - handlers.create_meeting - INFO - Добавление варианта: 19.03.2026 15:00
+2026-03-18 14:29:28,935 - handlers.create_meeting - INFO - Добавление варианта: 19.03.2026 16:00
+2026-03-18 14:29:28,941 - handlers.create_meeting - INFO - Добавлено вариантов времени: 5
+2026-03-18 14:29:28,941 - handlers.create_meeting - INFO - Сгенерирована ссылка: https://t.me/PlanTogether_bot?start=meeting_29
+2026-03-18 14:29:29,085 - handlers.create_meeting - INFO - Встреча 29 успешно создана пользователем 6468732318
+2026-03-18 14:29:29,085 - handlers.create_meeting - INFO - Временные данные для пользователя 6468732318 очищены
+2026-03-18 14:29:29,166 - aiogram.event - INFO - Update id=693994996 is handled. Duration 281 ms by bot id=8248055852
+2026-03-18 14:29:31,284 - aiogram.event - INFO - Update id=693994997 is handled. Duration 109 ms by bot id=8248055852
+2026-03-18 14:29:43,023 - handlers.start - INFO - Пользователь 272446792 перешел по ссылке на встречу 29
+2026-03-18 14:29:43,057 - handlers.start - INFO - Пользователь 1 добавлен в участники встречи 29
+2026-03-18 14:29:43,158 - handlers.start - INFO - Пользователю 1 показаны варианты для встречи 29
+2026-03-18 14:29:43,158 - aiogram.event - INFO - Update id=693994998 is handled. Duration 140 ms by bot id=8248055852
+2026-03-18 14:29:44,783 - aiogram.event - INFO - Update id=693994999 is handled. Duration 375 ms by bot id=8248055852
+2026-03-18 14:29:45,911 - aiogram.event - INFO - Update id=693995000 is handled. Duration 250 ms by bot id=8248055852
+2026-03-18 14:29:57,353 - handlers.voting - INFO - Пользователь 272446792 завершил голосование в встрече 29
+2026-03-18 14:29:57,436 - aiogram.event - INFO - Update id=693995001 is handled. Duration 296 ms by bot id=8248055852
+2026-03-18 14:30:00,218 - aiogram.event - INFO - Update id=693995002 is handled. Duration 125 ms by bot id=8248055852
+2026-03-18 14:30:01,211 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 29
+2026-03-18 14:30:01,399 - aiogram.event - INFO - Update id=693995003 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 14:30:02,643 - aiogram.event - INFO - Update id=693995004 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 14:30:07,378 - handlers.start - INFO - Пользователь 272446792 перешел по ссылке на встречу 29
+2026-03-18 14:30:07,382 - handlers.start - INFO - Пользователь 1 добавлен в участники встречи 29
+2026-03-18 14:30:07,489 - handlers.start - INFO - Пользователю 1 показаны варианты для встречи 29
+2026-03-18 14:30:07,489 - aiogram.event - INFO - Update id=693995005 is handled. Duration 109 ms by bot id=8248055852
+2026-03-18 14:30:09,221 - handlers.voting - INFO - Пользователь 272446792 запросил переголосование в встрече 29
+2026-03-18 14:30:09,438 - aiogram.event - INFO - Update id=693995006 is handled. Duration 218 ms by bot id=8248055852
+2026-03-18 14:30:13,565 - handlers.voting - INFO - Пользователь 272446792 запросил переголосование в встрече 29
+2026-03-18 14:30:13,701 - handlers.voting - ERROR - Ошибка при переголосовании: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+Traceback (most recent call last):
+  File "E:\meeting_planner_bot\handlers\voting.py", line 160, in revote
+    await callback.message.edit_text(
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\client\bot.py", line 485, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 189, in make_request
+    response = self.check_response(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "E:\meeting_planner_bot\venv\Lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2026-03-18 14:30:13,789 - aiogram.event - INFO - Update id=693995007 is handled. Duration 219 ms by bot id=8248055852
+2026-03-18 14:30:15,738 - aiogram.event - INFO - Update id=693995008 is handled. Duration 218 ms by bot id=8248055852
+2026-03-18 14:30:16,877 - aiogram.event - INFO - Update id=693995009 is handled. Duration 468 ms by bot id=8248055852
+2026-03-18 14:30:18,389 - aiogram.event - INFO - Update id=693995010 is handled. Duration 265 ms by bot id=8248055852
+2026-03-18 14:30:19,653 - aiogram.event - INFO - Update id=693995011 is handled. Duration 250 ms by bot id=8248055852
+2026-03-18 14:30:20,749 - aiogram.event - INFO - Update id=693995012 is handled. Duration 250 ms by bot id=8248055852
+2026-03-18 14:30:22,023 - handlers.voting - INFO - Пользователь 272446792 завершил голосование в встрече 29
+2026-03-18 14:30:22,107 - aiogram.event - INFO - Update id=693995013 is handled. Duration 280 ms by bot id=8248055852
+2026-03-18 14:30:25,070 - handlers.my_meetings - INFO - Пользователь 6468732318 просматривает встречу 29
+2026-03-18 14:30:25,429 - aiogram.event - INFO - Update id=693995014 is handled. Duration 360 ms by bot id=8248055852
+2026-03-18 14:30:27,541 - handlers.my_meetings - INFO - Пользователь 6468732318 просматривает результаты встречи 29
+2026-03-18 14:30:27,737 - aiogram.event - INFO - Update id=693995015 is handled. Duration 202 ms by bot id=8248055852
+2026-03-18 14:31:33,291 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 29
+2026-03-18 14:31:33,471 - aiogram.event - INFO - Update id=693995016 is handled. Duration 186 ms by bot id=8248055852
+2026-03-18 14:38:48,489 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-18 14:38:48,490 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-18 14:38:48,491 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8248055852)
+2026-03-18 14:38:48,743 - aiogram.dispatcher - INFO - Polling stopped for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-18 14:38:48,748 - __main__ - INFO - Бот остановлен пользователем
+2026-03-18 14:38:51,735 - __main__ - INFO - Инициализация бота...
+2026-03-18 14:38:51,901 - __main__ - INFO - Запуск бота...
+2026-03-18 14:38:51,903 - database.db - INFO - Таблицы в базе данных созданы/проверены
+2026-03-18 14:38:51,903 - __main__ - INFO - База данных инициализирована
+2026-03-18 14:38:51,904 - handlers.reminders - INFO - Фоновая задача напоминаний запущена
+2026-03-18 14:38:51,904 - handlers.reminders - INFO - Задача напоминаний запущена
+2026-03-18 14:38:52,242 - __main__ - INFO - Бот @PlanTogether_bot (ID: 8248055852) запущен и готов к работе
+2026-03-18 14:38:52,317 - __main__ - INFO - Начинаем polling...
+2026-03-18 14:38:52,318 - aiogram.dispatcher - INFO - Start polling
+2026-03-18 14:38:52,392 - aiogram.dispatcher - INFO - Run polling for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-18 14:39:10,001 - aiogram.event - INFO - Update id=693995017 is handled. Duration 250 ms by bot id=8248055852
+2026-03-18 14:39:11,241 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 29
+2026-03-18 14:39:11,441 - aiogram.event - INFO - Update id=693995018 is handled. Duration 202 ms by bot id=8248055852
+2026-03-18 14:39:13,081 - handlers.voting - INFO - Пользователь 272446792 запросил переголосование в встрече 29
+2026-03-18 14:39:13,316 - aiogram.event - INFO - Update id=693995019 is handled. Duration 233 ms by bot id=8248055852
+2026-03-18 14:39:19,375 - aiogram.event - INFO - Update id=693995020 is handled. Duration 188 ms by bot id=8248055852
+2026-03-18 14:39:22,899 - handlers.voting - INFO - Пользователь 272446792 запросил переголосование в встрече 29
+2026-03-18 14:39:23,191 - aiogram.event - INFO - Update id=693995021 is handled. Duration 296 ms by bot id=8248055852
+2026-03-18 14:39:25,217 - handlers.voting - INFO - Пользователь 272446792 завершил голосование в встрече 29
+2026-03-18 14:39:25,301 - aiogram.event - INFO - Update id=693995022 is handled. Duration 265 ms by bot id=8248055852
+2026-03-18 14:44:46,523 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [WinError 1236] Подключение к сети было разорвано локальной системой
+2026-03-18 14:44:46,523 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8248055852)
+2026-03-18 14:44:57,820 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 8248055852)
+2026-03-18 15:54:09,683 - aiogram.event - INFO - Update id=693995023 is handled. Duration 764 ms by bot id=8248055852
+2026-03-18 15:54:11,881 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 29
+2026-03-18 15:54:12,179 - aiogram.event - INFO - Update id=693995024 is handled. Duration 297 ms by bot id=8248055852
+2026-03-18 15:54:15,272 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает результаты встречи 29
+2026-03-18 15:54:15,599 - aiogram.event - INFO - Update id=693995025 is handled. Duration 327 ms by bot id=8248055852
+2026-03-18 15:54:16,745 - handlers.voting - INFO - Пользователь 272446792 запросил переголосование в встрече 29
+2026-03-18 15:54:17,037 - aiogram.event - INFO - Update id=693995026 is handled. Duration 297 ms by bot id=8248055852
+2026-03-18 15:54:19,417 - handlers.voting - INFO - Пользователь 272446792 завершил голосование в встрече 29
+2026-03-18 15:54:19,588 - aiogram.event - INFO - Update id=693995027 is handled. Duration 561 ms by bot id=8248055852
+2026-03-18 15:54:26,648 - aiogram.event - INFO - Update id=693995028 is handled. Duration 281 ms by bot id=8248055852
+2026-03-18 15:54:28,258 - aiogram.event - INFO - Update id=693995029 is handled. Duration 296 ms by bot id=8248055852
+2026-03-18 15:54:31,796 - aiogram.event - INFO - Update id=693995030 is handled. Duration 563 ms by bot id=8248055852
+2026-03-18 15:54:59,949 - aiogram.event - INFO - Update id=693995031 is handled. Duration 172 ms by bot id=8248055852
+2026-03-18 15:55:08,500 - aiogram.event - INFO - Update id=693995032 is handled. Duration 171 ms by bot id=8248055852
+2026-03-18 15:55:17,363 - handlers.my_meetings - INFO - Пользователь 6468732318 просматривает встречу 29
+2026-03-18 15:55:17,668 - aiogram.event - INFO - Update id=693995033 is handled. Duration 313 ms by bot id=8248055852
+2026-03-18 15:55:25,540 - handlers.my_meetings - INFO - Пользователь 6468732318 редактирует встречу 29
+2026-03-18 15:55:25,544 - handlers.my_meetings - INFO - Пользователь 6468732318 переведен в состояние EditMeeting.choosing_option
+2026-03-18 15:55:25,842 - aiogram.event - INFO - Update id=693995034 is handled. Duration 311 ms by bot id=8248055852
+2026-03-18 15:55:27,781 - handlers.my_meetings - INFO - ADD_OPTION_START вызван с callback_data: add_29
+2026-03-18 15:55:27,782 - handlers.my_meetings - INFO - Пользователь 6468732318 переведен в состояние EditMeeting.adding_new_time
+2026-03-18 15:55:28,072 - aiogram.event - INFO - Update id=693995035 is handled. Duration 280 ms by bot id=8248055852
+2026-03-18 15:55:29,585 - handlers.my_meetings - INFO - ADD_OPTION_DATE вызван с callback_data: date_6
+2026-03-18 15:55:29,860 - aiogram.event - INFO - Update id=693995036 is handled. Duration 280 ms by bot id=8248055852
+2026-03-18 15:55:31,058 - handlers.my_meetings - INFO - DATES_DONE вызван с callback_data: dates_done
+2026-03-18 15:55:31,396 - aiogram.event - INFO - Update id=693995037 is handled. Duration 343 ms by bot id=8248055852
+2026-03-18 15:55:32,407 - handlers.my_meetings - INFO - ADD_OPTION_TIME вызван с callback_data: time_6_17:00
+2026-03-18 15:55:32,409 - handlers.my_meetings - INFO - Индекс даты: 6, время: 17:00
+2026-03-18 15:55:32,409 - handlers.my_meetings - INFO - Время 17:00 добавлено в выбранных для даты 24.03.2026
+2026-03-18 15:55:32,409 - handlers.my_meetings - INFO - Текущие выбранные времена для 24.03.2026: ['17:00']
+2026-03-18 15:55:32,845 - aiogram.event - INFO - Update id=693995038 is handled. Duration 436 ms by bot id=8248055852
+2026-03-18 15:55:32,998 - handlers.my_meetings - INFO - ADD_OPTION_TIME вызван с callback_data: time_6_16:00
+2026-03-18 15:55:33,000 - handlers.my_meetings - INFO - Индекс даты: 6, время: 16:00
+2026-03-18 15:55:33,001 - handlers.my_meetings - INFO - Время 16:00 добавлено в выбранных для даты 24.03.2026
+2026-03-18 15:55:33,001 - handlers.my_meetings - INFO - Текущие выбранные времена для 24.03.2026: ['17:00', '16:00']
+2026-03-18 15:55:33,289 - handlers.my_meetings - INFO - ADD_OPTION_TIME вызван с callback_data: time_6_15:00
+2026-03-18 15:55:33,290 - handlers.my_meetings - INFO - Индекс даты: 6, время: 15:00
+2026-03-18 15:55:33,291 - handlers.my_meetings - INFO - Время 15:00 добавлено в выбранных для даты 24.03.2026
+2026-03-18 15:55:33,291 - handlers.my_meetings - INFO - Текущие выбранные времена для 24.03.2026: ['17:00', '16:00', '15:00']
+2026-03-18 15:55:33,356 - aiogram.event - INFO - Update id=693995039 is handled. Duration 375 ms by bot id=8248055852
+2026-03-18 15:55:33,658 - handlers.my_meetings - INFO - ADD_OPTION_TIME вызван с callback_data: time_6_14:00
+2026-03-18 15:55:33,660 - handlers.my_meetings - INFO - Индекс даты: 6, время: 14:00
+2026-03-18 15:55:33,660 - handlers.my_meetings - INFO - Время 14:00 добавлено в выбранных для даты 24.03.2026
+2026-03-18 15:55:33,661 - handlers.my_meetings - INFO - Текущие выбранные времена для 24.03.2026: ['17:00', '16:00', '15:00', '14:00']
+2026-03-18 15:55:34,003 - aiogram.event - INFO - Update id=693995040 is handled. Duration 718 ms by bot id=8248055852
+2026-03-18 15:55:34,005 - aiogram.event - INFO - Update id=693995041 is handled. Duration 343 ms by bot id=8248055852
+2026-03-18 15:55:39,680 - handlers.my_meetings - INFO - ADD_OPTION_TIME вызван с callback_data: time_done
+2026-03-18 15:55:39,683 - handlers.my_meetings - INFO - Получена команда time_done, вызываем соответствующий хендлер
+2026-03-18 15:55:39,683 - handlers.my_meetings - INFO - TIME_DONE вызван с callback_data: time_done
+2026-03-18 15:55:39,684 - handlers.my_meetings - INFO - Пользователь 6468732318 нажал 'Далее' при добавлении вариантов
+2026-03-18 15:55:39,685 - handlers.my_meetings - INFO - Выбранные даты: ['24.03.2026']
+2026-03-18 15:55:39,685 - handlers.my_meetings - INFO - Текущий индекс: 0
+2026-03-18 15:55:39,685 - handlers.my_meetings - INFO - Выбранное время для 24.03.2026: ['17:00', '16:00', '15:00', '14:00']
+2026-03-18 15:55:39,685 - handlers.my_meetings - INFO - Все даты обработаны, сохраняем новые варианты
+2026-03-18 15:55:39,685 - handlers.my_meetings - INFO - Сохранение новых вариантов для пользователя 6468732318
+2026-03-18 15:55:39,720 - handlers.my_meetings - INFO - Добавлен вариант: 24.03.2026 17:00
+2026-03-18 15:55:39,727 - handlers.my_meetings - INFO - Добавлен вариант: 24.03.2026 16:00
+2026-03-18 15:55:39,734 - handlers.my_meetings - INFO - Добавлен вариант: 24.03.2026 15:00
+2026-03-18 15:55:39,742 - handlers.my_meetings - INFO - Добавлен вариант: 24.03.2026 14:00
+2026-03-18 15:55:39,980 - handlers.my_meetings - INFO - Добавлено 4 новых вариантов к встрече 29
+2026-03-18 15:55:39,981 - handlers.my_meetings - INFO - Пользователь 6468732318 возвращен в состояние EditMeeting.choosing_option
+2026-03-18 15:55:40,120 - aiogram.event - INFO - Update id=693995042 is handled. Duration 452 ms by bot id=8248055852
+2026-03-18 15:55:41,940 - handlers.my_meetings - INFO - FINISH_EDIT вызван с callback_data: finish_29
+2026-03-18 15:55:42,283 - aiogram.event - INFO - Update id=693995043 is handled. Duration 344 ms by bot id=8248055852
+2026-03-18 15:55:45,289 - aiogram.event - INFO - Update id=693995044 is handled. Duration 327 ms by bot id=8248055852
+2026-03-18 15:55:52,235 - aiogram.event - INFO - Update id=693995045 is handled. Duration 640 ms by bot id=8248055852
+2026-03-18 15:55:58,584 - aiogram.event - INFO - Update id=693995046 is handled. Duration 156 ms by bot id=8248055852
+2026-03-18 15:56:00,019 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 29
+2026-03-18 15:56:00,531 - aiogram.event - INFO - Update id=693995047 is handled. Duration 515 ms by bot id=8248055852
+2026-03-18 15:56:01,592 - handlers.voting - INFO - Пользователь 272446792 запросил переголосование в встрече 29
+2026-03-18 15:56:02,225 - aiogram.event - INFO - Update id=693995048 is handled. Duration 625 ms by bot id=8248055852
+2026-03-18 15:56:04,368 - aiogram.event - INFO - Update id=693995049 is handled. Duration 297 ms by bot id=8248055852
+2026-03-18 15:56:11,210 - aiogram.event - INFO - Update id=693995050 is handled. Duration 578 ms by bot id=8248055852
+2026-03-18 15:56:12,251 - aiogram.event - INFO - Update id=693995051 is handled. Duration 140 ms by bot id=8248055852
+2026-03-18 15:56:14,145 - handlers.voting - INFO - Пользователь 272446792 завершил голосование в встрече 29
+2026-03-18 15:56:14,293 - aiogram.event - INFO - Update id=693995052 is handled. Duration 438 ms by bot id=8248055852
+2026-03-18 16:04:43,601 - aiogram.event - INFO - Update id=693995053 is handled. Duration 343 ms by bot id=8248055852
+2026-03-18 16:48:52,139 - aiogram.event - INFO - Update id=693995054 is handled. Duration 547 ms by bot id=8248055852
+2026-03-18 16:48:55,043 - handlers.my_meetings - INFO - Пользователь 272446792 просматривает встречу 29
+2026-03-18 16:48:55,339 - aiogram.event - INFO - Update id=693995055 is handled. Duration 296 ms by bot id=8248055852
+2026-03-18 16:48:56,831 - aiogram.event - INFO - Update id=693995056 is handled. Duration 281 ms by bot id=8248055852
+2026-03-18 16:49:12,540 - aiogram.event - INFO - Update id=693995057 is handled. Duration 156 ms by bot id=8248055852
+2026-03-18 16:49:14,035 - handlers.my_meetings - INFO - Пользователь 6468732318 просматривает встречу 29
+2026-03-18 16:49:14,325 - aiogram.event - INFO - Update id=693995058 is handled. Duration 297 ms by bot id=8248055852
+2026-03-18 16:49:19,745 - handlers.my_meetings - INFO - Пользователь 6468732318 финализирует встречу 29
+2026-03-18 16:49:20,137 - aiogram.event - INFO - Update id=693995059 is handled. Duration 406 ms by bot id=8248055852
+2026-03-18 16:49:25,217 - handlers.my_meetings - INFO - Пользователь 6468732318 подтверждает время 218 для встречи 29
+2026-03-18 16:49:25,249 - database.db - INFO - Для встречи 29 установлено финальное время 218
+2026-03-18 16:49:25,709 - handlers.my_meetings - INFO - Время для встречи 29 подтверждено, уведомлено 2 участников
+2026-03-18 16:49:25,848 - aiogram.event - INFO - Update id=693995060 is handled. Duration 639 ms by bot id=8248055852
+2026-03-18 16:49:27,352 - aiogram.event - INFO - Update id=693995061 is handled. Duration 156 ms by bot id=8248055852
+2026-03-18 16:49:28,736 - handlers.my_meetings - INFO - Пользователь 6468732318 просматривает встречу 29
+2026-03-18 16:49:29,092 - aiogram.event - INFO - Update id=693995062 is handled. Duration 359 ms by bot id=8248055852
+2026-03-18 16:49:31,151 - aiogram.event - INFO - Update id=693995063 is handled. Duration 469 ms by bot id=8248055852
+2026-03-18 16:49:32,733 - aiogram.event - INFO - Update id=693995064 is handled. Duration 327 ms by bot id=8248055852
+2026-03-18 16:49:41,264 - aiogram.event - INFO - Update id=693995065 is handled. Duration 234 ms by bot id=8248055852
+2026-03-18 16:49:42,543 - handlers.my_meetings - INFO - Пользователь 272446792 запросил удаление своих прошедших встреч
+2026-03-18 16:49:42,738 - aiogram.event - INFO - Update id=693995066 is handled. Duration 202 ms by bot id=8248055852
+2026-03-18 16:50:26,019 - aiogram.dispatcher - INFO - Polling stopped
+2026-03-18 16:50:26,020 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-18 16:50:26,020 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8248055852)
+2026-03-18 16:50:26,285 - aiogram.dispatcher - INFO - Polling stopped for bot @PlanTogether_bot id=8248055852 - 'Планируй встречу'
+2026-03-18 16:50:26,287 - __main__ - INFO - Бот остановлен пользователем
