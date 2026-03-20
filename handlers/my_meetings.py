@@ -40,13 +40,22 @@ async def show_my_meetings(message: Message, db: Database):
         text = "📋 Ваши встречи:\n\n"
         for meeting in meetings:
             if meeting['finalized_option_id']:
+                # Получаем информацию о подтверждённом времени
                 async with aiosqlite.connect(db.db_path) as conn:
                     cursor = await conn.execute(
-                        "SELECT option_text FROM meeting_options WHERE id = ?",
+                        "SELECT option_datetime, option_text FROM meeting_options WHERE id = ?",
                         (meeting['finalized_option_id'],)
                     )
                     opt = await cursor.fetchone()
-                    final_time = f"✅ {opt[0]}" if opt else "⏳ Время не выбрано"
+                    
+                    if opt:
+                        # Конвертируем время в часовой пояс пользователя
+                        local_time = utc_to_local(opt[0], user['timezone'])
+                        # Извлекаем только дату и время без лишних символов
+                        # opt[1] содержит "20.03.2026 10:00" в UTC, нам нужно показать локальное
+                        final_time = f"✅ {local_time}"
+                    else:
+                        final_time = "⏳ Время не выбрано"
             else:
                 final_time = "⏳ Голосование идет"
             
@@ -75,6 +84,21 @@ async def show_meeting_details(callback: CallbackQuery, db: Database):
             await callback.answer("Встреча не найдена")
             return
         
+        # Проверяем, прошла ли встреча
+        is_past = False
+        is_finalized = meeting['finalized_option_id'] is not None
+        
+        if is_finalized:
+            # Если время подтверждено, проверяем, прошло ли оно
+            options = await db.get_meeting_options(meeting_id)
+            for opt in options:
+                if opt['id'] == meeting['finalized_option_id']:
+                    meeting_time = datetime.fromisoformat(opt['option_datetime'].replace('Z', '+00:00'))
+                    now = datetime.now(timezone.utc)
+                    if meeting_time < now:
+                        is_past = True
+                    break
+        
         # Проверяем, является ли пользователь создателем
         creator = await db.get_user_by_id(meeting['creator_id'])
         is_creator = (creator and creator['telegram_id'] == callback.from_user.id)
@@ -86,11 +110,14 @@ async def show_meeting_details(callback: CallbackQuery, db: Database):
             has_voted = len(user_votes) > 0
         
         final_time_text = ""
-        if meeting['finalized_option_id']:
+        if is_finalized:
             options = await db.get_meeting_options(meeting_id)
             for opt in options:
                 if opt['id'] == meeting['finalized_option_id']:
-                    final_time_text = f"\n✅ Подтвержденное время: {utc_to_local(opt['option_datetime'], user['timezone'])}"
+                    local_time = utc_to_local(opt['option_datetime'], user['timezone'])
+                    final_time_text = f"\n✅ Подтвержденное время: {local_time}"
+                    if is_past:
+                        final_time_text += " (прошла)"
                     break
         
         text = (
@@ -102,12 +129,110 @@ async def show_meeting_details(callback: CallbackQuery, db: Database):
         
         await callback.message.edit_text(
             text,
-            reply_markup=meeting_management_keyboard(meeting_id, is_creator, has_voted)
+            reply_markup=meeting_management_keyboard(
+                meeting_id, 
+                is_creator, 
+                has_voted, 
+                is_past,
+                is_finalized
+            )
         )
         await callback.answer()
     except Exception as e:
         logger.error(f"Ошибка при показе деталей встречи: {e}", exc_info=True)
         await callback.answer("Произошла ошибка")
+
+@router.callback_query(F.data.startswith("delete_participant_"))
+async def delete_participant_meeting(callback: CallbackQuery, db: Database):
+    """Удаление встречи участником (только из его списка, не для всех)"""
+    try:
+        meeting_id = int(callback.data.replace("delete_participant_", ""))
+        logger.info(f"Участник {callback.from_user.id} удаляет встречу {meeting_id} из своего списка")
+        
+        user = await db.get_user(callback.from_user.id)
+        if not user:
+            await callback.answer("Пользователь не найден")
+            return
+        
+        meeting = await db.get_meeting(meeting_id)
+        if not meeting:
+            await callback.answer("Встреча не найдена")
+            return
+        
+        # Проверяем, что пользователь не создатель
+        creator = await db.get_user_by_id(meeting['creator_id'])
+        if creator and creator['telegram_id'] == callback.from_user.id:
+            await callback.answer("Создатель не может использовать эту кнопку")
+            return
+        
+        # Проверяем, прошла ли встреча
+        is_past = False
+        if meeting['finalized_option_id']:
+            options = await db.get_meeting_options(meeting_id)
+            for opt in options:
+                if opt['id'] == meeting['finalized_option_id']:
+                    meeting_time = datetime.fromisoformat(opt['option_datetime'].replace('Z', '+00:00'))
+                    now = datetime.now(timezone.utc)
+                    if meeting_time < now:
+                        is_past = True
+                    break
+        else:
+            # Если время не подтверждено, проверяем по дате создания
+            created_time = datetime.fromisoformat(meeting['created_at'].replace('Z', '+00:00'))
+            now = datetime.now(timezone.utc)
+            if (now - created_time).days > 7:  # Если прошло больше недели
+                is_past = True
+        
+        if not is_past:
+            await callback.answer("❌ Можно удалять только прошедшие встречи")
+            return
+        
+        # Удаляем только связь участника с встречей, но не саму встречу
+        async with aiosqlite.connect(db.db_path) as conn:
+            await conn.execute(
+                "DELETE FROM participants WHERE meeting_id = ? AND user_id = ?",
+                (meeting_id, user['id'])
+            )
+            await conn.commit()
+        
+        logger.info(f"Участник {user['id']} удалён из встречи {meeting_id}")
+        
+        await callback.answer("✅ Встреча удалена из вашего списка")
+        
+        # Возвращаемся к списку встреч
+        meetings = await db.get_meetings_by_user(user['id'])
+        
+        if not meetings:
+            await callback.message.edit_text(
+                "У вас пока нет встреч.\n"
+                "Создайте новую встречу через главное меню!"
+            )
+            return
+        
+        text = "📋 Ваши встречи:\n\n"
+        for meeting in meetings:
+            if meeting['finalized_option_id']:
+                async with aiosqlite.connect(db.db_path) as conn:
+                    cursor = await conn.execute(
+                        "SELECT option_text FROM meeting_options WHERE id = ?",
+                        (meeting['finalized_option_id'],)
+                    )
+                    opt = await cursor.fetchone()
+                    final_time = f"✅ {opt[0]}" if opt else "⏳ Время не выбрано"
+            else:
+                final_time = "⏳ Голосование идет"
+            
+            title = meeting['title'][:30] + "..." if len(meeting['title']) > 30 else meeting['title']
+            text += f"• {title} - {final_time}\n"
+        
+        await callback.message.edit_text(
+            text,
+            reply_markup=meetings_list_keyboard(meetings, user['id'])
+        )
+        
+    except Exception as e:
+        logger.error(f"Ошибка при удалении встречи участником: {e}", exc_info=True)
+        await callback.answer("Произошла ошибка")        
 
 @router.callback_query(F.data.startswith("view_results_"))
 async def view_results(callback: CallbackQuery, db: Database):
@@ -140,7 +265,7 @@ async def view_results(callback: CallbackQuery, db: Database):
 
 @router.callback_query(F.data.startswith("delete_"))
 async def delete_single_meeting(callback: CallbackQuery, db: Database):
-    """Удаление конкретной встречи"""
+    """Удаление конкретной встречи создателем"""
     try:
         if callback.data == "delete_past_meetings" or callback.data == "unique_past_delete":
             return
@@ -156,13 +281,14 @@ async def delete_single_meeting(callback: CallbackQuery, db: Database):
         
         creator = await db.get_user_by_id(meeting['creator_id'])
         if not creator or creator['telegram_id'] != callback.from_user.id:
-            await callback.answer("Только создатель может удалить встречу")
+            await callback.answer("Только создатель может полностью удалить встречу")
             return
         
+        # Создатель может удалить любую свою встречу
         await db.delete_meeting(meeting_id)
         
         await callback.message.edit_text(
-            "✅ Встреча успешно удалена."
+            "✅ Встреча полностью удалена."
         )
         await callback.answer()
     except ValueError:
@@ -1070,11 +1196,17 @@ async def back_to_meetings(callback: CallbackQuery, db: Database):
             if meeting['finalized_option_id']:
                 async with aiosqlite.connect(db.db_path) as conn:
                     cursor = await conn.execute(
-                        "SELECT option_text FROM meeting_options WHERE id = ?",
+                        "SELECT option_datetime, option_text FROM meeting_options WHERE id = ?",
                         (meeting['finalized_option_id'],)
                     )
                     opt = await cursor.fetchone()
-                    final_time = f"✅ {opt[0]}" if opt else "⏳ Время не выбрано"
+                    
+                    if opt:
+                        # Конвертируем время в часовой пояс пользователя
+                        local_time = utc_to_local(opt[0], user['timezone'])
+                        final_time = f"✅ {local_time}"
+                    else:
+                        final_time = "⏳ Время не выбрано"
             else:
                 final_time = "⏳ Голосование идет"
             

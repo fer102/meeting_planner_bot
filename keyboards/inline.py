@@ -127,29 +127,39 @@ def meeting_options_keyboard(meeting_id: int, options: list, user_votes: list = 
     builder.adjust(1)
     return builder.as_markup()
 
-def meeting_management_keyboard(meeting_id: int, is_creator: bool, has_voted: bool = False) -> InlineKeyboardMarkup:
+def meeting_management_keyboard(meeting_id: int, is_creator: bool, has_voted: bool = False, is_past: bool = False, is_finalized: bool = False) -> InlineKeyboardMarkup:
     """Клавиатура управления встречей
     
     Args:
         meeting_id: ID встречи
         is_creator: является ли пользователь создателем
         has_voted: голосовал ли пользователь (для участников)
+        is_past: прошла ли встреча
+        is_finalized: подтверждено ли время встречи
     """
     builder = InlineKeyboardBuilder()
     
     builder.button(text="📊 Результаты", callback_data=f"view_results_{meeting_id}")
     
     if is_creator:
-        builder.button(text="✏️ Изменить варианты", callback_data=f"edit_{meeting_id}")
+        # Кнопки для создателя
+        if not is_past:
+            builder.button(text="✏️ Изменить варианты", callback_data=f"edit_{meeting_id}")
         builder.button(text="📨 Сообщение участникам", callback_data=f"broadcast_{meeting_id}")
         builder.button(text="🗑 Удалить встречу", callback_data=f"delete_{meeting_id}")
-        builder.button(text="✅ Подтвердить время", callback_data=f"finalize_{meeting_id}")
+        if not is_past and not is_finalized:
+            builder.button(text="✅ Подтвердить время", callback_data=f"finalize_{meeting_id}")
     else:
-        # Для участников
-        if has_voted:
-            builder.button(text="🔄 Переголосовать", callback_data=f"revote_{meeting_id}")
+        # Кнопки для участников
+        if is_past:
+            # Для прошедших встреч - только удаление
+            builder.button(text="🗑 Удалить встречу", callback_data=f"delete_participant_{meeting_id}")
         else:
-            builder.button(text="🗳 Голосовать", callback_data=f"vote_now_{meeting_id}")
+            # Для активных встреч
+            if has_voted:
+                builder.button(text="🔄 Переголосовать", callback_data=f"revote_{meeting_id}")
+            else:
+                builder.button(text="🗳 Голосовать", callback_data=f"vote_now_{meeting_id}")
     
     builder.button(text="⏰ Напомнить мне", callback_data=f"remind_{meeting_id}")
     builder.button(text="🔙 Назад", callback_data="back_to_meetings")
